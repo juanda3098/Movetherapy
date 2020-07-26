@@ -1,0 +1,29 @@
+.o-header-container{
+    height:10%;
+    background-color: #7CC836;
+    color: #312C7F;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.o-header-title{
+    margin: 10px 45px;
+}
+
+.o-header-buttons-container{
+    margin: 10px 30px;
+}
+
+.o-header-button{
+    margin: 10px;
+    font-size: 24;
+    font-weight: bold;
+    color: #312C7F;
+    border: none;
+    background-color: #7CC836;
+}
+
+.o-header-login{
+    font-weight: 800;
+}
