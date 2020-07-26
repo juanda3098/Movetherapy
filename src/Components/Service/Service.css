@@ -1,0 +1,38 @@
+.o-image-container {
+    position: relative;
+    height: 50vh;
+    max-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+}
+
+.o-image{
+    width:100%; 
+    height:100%; 
+    object-fit: fill; 
+}
+
+.o-image-container .o-info{
+    position: absolute;
+    background-color: rgba(240, 248, 255, 0.829);
+    width: 100%;
+    height: 70%;
+    color: #312C7F;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.o-service-title{
+    font-size: 56px;
+}
+
+.o-service-description{
+    width: 40%;
+    max-width: 40%;
+    font-size: 22px;
+    word-wrap: normal;
+    text-align: left;
+}
