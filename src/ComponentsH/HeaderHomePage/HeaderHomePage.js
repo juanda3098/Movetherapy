@@ -16,7 +16,7 @@ function HeaderHomePage() {
         <Link to="/Services">
           <button className="o-header-button">Servicios</button>
         </Link>
-        <Link to="/">
+        <Link to="/AboutUs">
           <button className="o-header-button">Quienes Somos</button>
         </Link>
         <Link to="/">

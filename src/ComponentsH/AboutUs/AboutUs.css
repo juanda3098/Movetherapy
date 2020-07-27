@@ -1,10 +1,10 @@
-.o-image-container {
+.o-aboutus-container {
     position: relative;
-    height: 50vh;
-    max-height: 50vh;
+    height: 45vh;
+    max-height: 45vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     object-fit: contain;
 }
 
@@ -14,22 +14,25 @@
     object-fit: fill; 
 }
 
-.o-image-container .o-info{
+.o-aboutus-container .o-info{
     position: absolute;
     background-color: rgba(240, 248, 255, 0.829);
-    width: 100%;
-    height: 70%;
+    width: 50%;
+    height: 100%;
     color: #312C7F;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.o-service-title{
+.o-aboutus-title{
+    margin: 0px;
     font-size: 56px;
 }
 
-.o-service-description{
+.o-aboutus-description{
+    margin: 0px;
     width: 40%;
     max-width: 40%;
     font-size: 22px;
@@ -38,19 +41,19 @@
 }
 
 @media  only screen and (max-width: 600px){
-    .o-image-container{
+    .o-aboutus-container{
         height: 30vh;
     } 
 
-    .o-image-container .o-info{
+    .o-aboutus-container .o-info{
         width: 100%;
     }
     
-    .o-service-title{
+    .o-aboutus-title{
         font-size: 24px;
     }
 
-    .o-service-description{
-        display: none;
+    .o-aboutus-description{
+        font-size: 12px;
     }
 }
