@@ -1,0 +1,97 @@
+.o-contactus-tab-container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.o-contactus-container{
+    margin: 20px 0px;
+    width: 90vw;
+    height: 60vh;
+    background-color: #7CC836;
+    display: flex;
+}
+
+.o-client-info-container{
+    margin: 0% 2%;
+    min-width: 36%;
+    min-height:100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.o-input{
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    font-size: 18px;
+    border: none;
+    box-shadow: 0px 1px 0px 0px white;
+}
+
+.o-large-input{
+    min-height: 15%;
+    text-justify: auto;
+}
+
+.o-button{
+    margin: 5vh 0vw;
+    background-color: transparent;  /* Green */
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+  
+.o-button:hover{
+    background-color: white; 
+    color: #7CC836; 
+    border: 2px solid #7CC836;
+}
+
+.o-contact-info-container{
+    margin-top: 3vh;
+    width: 100%;
+    height:20.5vh;
+    background-color: #7CC836;
+    color: #312C7F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.o-contact-title{
+    margin-left: 10vw; 
+}
+
+.o-contact-info{
+    margin: 1rem 10vw;
+    color: white;
+    display: flex;
+    font-size: 32px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.o-contact-info .o-text{
+    margin: 0px 1rem;
+}
+
+.o-logo{
+    width: 60px;
+    height: 60px;
+    fill:white;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.637);
+}
