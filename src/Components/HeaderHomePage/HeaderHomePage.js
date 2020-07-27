@@ -1,16 +1,31 @@
-import React from 'react';
-import './HeaderHomePage.css';
+import React from "react";
+
+import { Link } from "react-router-dom";
+
+import Logo from "../../Img/LogoHeader.png";
+
+import "./HeaderHomePage.css";
 
 function HeaderHomePage() {
   return (
     <div className="o-header-container">
-        <h1 className="o-header-title">Move Therapy</h1>
-        <div className="o-header-buttons-container">
-            <button className="o-header-button">Servicios</button>
-            <button className="o-header-button">Quienes Somos</button>
-            <button className="o-header-button">Contactenos</button>
-            <button className="o-header-button o-header-login">Ingresar</button>
-        </div>
+      <Link to="/">
+        <img className="o-header-logo" src={Logo} alt="" />
+      </Link>
+      <div className="o-header-buttons-container">
+        <Link to="/Services">
+          <button className="o-header-button">Servicios</button>
+        </Link>
+        <Link to="/">
+          <button className="o-header-button">Quienes Somos</button>
+        </Link>
+        <Link to="/">
+          <button className="o-header-button">Contactenos</button>
+        </Link>
+        <Link to="/">
+          <button className="o-header-button">Ingresar</button>
+        </Link>
+      </div>
     </div>
   );
 }

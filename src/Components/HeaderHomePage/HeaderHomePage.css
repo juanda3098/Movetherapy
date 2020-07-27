@@ -1,29 +1,28 @@
 .o-header-container{
-    height:10%;
-    background-color: #7CC836;
-    color: #312C7F;
+
     display:flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.o-header-title{
-    margin: 10px 45px;
-}
-
 .o-header-buttons-container{
-    margin: 10px 30px;
+    margin: 5vh 5vw;
 }
 
 .o-header-button{
-    margin: 10px;
+    margin: 0rem 1rem;
     font-size: 24;
     font-weight: bold;
     color: #312C7F;
     border: none;
-    background-color: #7CC836;
+    background-color: rgb(255, 255, 255);
 }
 
 .o-header-login{
     font-weight: 800;
+}
+
+.o-header-logo {
+    margin-left: 5vw;
+    width: 20vw;
 }
