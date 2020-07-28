@@ -36,3 +36,21 @@
     word-wrap: normal;
     text-align: left;
 }
+
+@media  only screen and (max-width: 600px){
+    .o-image-container{
+        height: 30vh;
+    } 
+
+    .o-image-container .o-info{
+        width: 100%;
+    }
+    
+    .o-service-title{
+        font-size: 24px;
+    }
+
+    .o-service-description{
+        display: none;
+    }
+}

@@ -20,7 +20,7 @@ function ServicesTab() {
       de estimular el sistema linfático mejorando la
       circulación de la linfa, evitando la retención de
       líquidos y edemas" numOrientation="1"></Service>
-      <Service stImage="https://cdn.pixabay.com/photo/2017/10/10/22/24/wide-format-2839089_960_720.jpg" stTitle="NUTRICIÒN" stDescription="El programa se encuentra orientado a todo
+      <Service stImage="https://cdn.pixabay.com/photo/2017/10/10/22/24/wide-format-2839089_960_720.jpg" stTitle="NUTRICIÓN" stDescription="El programa se encuentra orientado a todo
       tipo de población: deportista, sedentarios y/o
       personas que desean bajar de peso o
       aumentar masa muscular, promoviendo
