@@ -72,8 +72,8 @@
 
 .o-contact-info-container{
     margin-top: 3vh;
-    width: 100%;
-    height:20.6vh;
+    width: 100vw;
+    height: 20.6vh;
     background-color: #7CC836;
     color: #312C7F;
     display: flex;
