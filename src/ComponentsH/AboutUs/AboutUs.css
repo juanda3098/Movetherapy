@@ -1,59 +1,36 @@
 .o-aboutus-container {
-    position: relative;
-    height: 45vh;
-    max-height: 45vh;
+    color: #312C7F
+}
+
+.o-aboutus-title {
+    padding: 5vh 15vw 7vh 15vw;
+    background: #D8EFC3;
+}
+
+.o-aboutus-team {
+    padding: 5vh 15vw 7vh 15vw;
+}
+
+.o-aboutus-persons {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    object-fit: contain;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 7vh;
 }
 
-.o-image{
-    width:100%; 
-    height:100%; 
-    object-fit: fill; 
+.o-aboutus-person {
+    padding: 2vw;
+    border-radius: 1rem;
+    background: #D8EFC3;
 }
 
-.o-aboutus-container .o-info{
-    position: absolute;
-    background-color: rgba(240, 248, 255, 0.829);
-    width: 50%;
-    height: 100%;
-    color: #312C7F;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.o-aboutus-img {
+    width: 10rem;
+    border-radius: 50%;
 }
 
-.o-aboutus-title{
-    margin: 0px;
-    font-size: 56px;
-}
-
-.o-aboutus-description{
-    margin: 0px;
-    width: 40%;
-    max-width: 40%;
-    font-size: 22px;
-    word-wrap: normal;
-    text-align: left;
-}
-
-@media  only screen and (max-width: 600px){
-    .o-aboutus-container{
-        height: 30vh;
-    } 
-
-    .o-aboutus-container .o-info{
-        width: 100%;
-    }
-    
-    .o-aboutus-title{
-        font-size: 24px;
-    }
-
-    .o-aboutus-description{
-        font-size: 12px;
-    }
+.o-aboutus-ig {
+    padding-top: 5vh;
+    background: #D8EFC3;
+    height: 45rem;
 }

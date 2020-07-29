@@ -21,3 +21,37 @@
 .o-container-img {
     padding: 10vh;
 }
+
+.o-container-in {
+    margin: 12vh 0vh;
+    color: #312C7F
+}
+
+.o-title-sentence {
+    font-size: 50px;
+}
+
+.o-services {
+    padding: 6vh 0vh;
+    background: #D8EFC3;
+    color: #312C7F
+}
+
+.o-container-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.o-service {
+    margin: 1rem;
+    padding: 2rem 0rem;
+    width: 25vw;
+    background: rgb(255, 255, 255);
+    border-radius: 1rem;
+}
+
+.o-icon-service {
+    margin: 2rem 0rem;
+    width: 10rem;
+}

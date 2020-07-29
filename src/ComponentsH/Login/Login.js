@@ -21,7 +21,7 @@ const Login = () => {
                         </Link>
                     </div>
                 </div>
-                <img className="o-login-image" src={MTfront}></img>
+                <img className="o-login-image" src={MTfront} alt=""></img>
             </div>
         </div>
     );
