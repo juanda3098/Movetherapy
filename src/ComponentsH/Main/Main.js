@@ -7,6 +7,7 @@ import Home from "../Home/Home"
 import ServiceTab from "../ServicesTab/ServicesTab";
 import AboutUs from "../AboutUs/AboutUs";
 import ContactUs from "../ContactUs/ContactUs"
+import Login from "../Login/Login"
 
 import "./Main.css";
 
@@ -19,6 +20,7 @@ function Main() {
         <Route path="/Services" exact component={ServiceTab} />
         <Route path="/AboutUs" exact component={AboutUs} />
         <Route path="/ContactUs" exact component={ContactUs} />
+        <Route path="/Login" exact component={Login} />
         {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
       </Switch>
     </BrowserRouter>

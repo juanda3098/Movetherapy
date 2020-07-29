@@ -1,0 +1,48 @@
+.o-login-container{
+    margin: 20px 0px;
+    width: 90vw;
+    height: 78vh;
+    background-color: #7CC836;
+    display: flex;
+}
+
+.o-login-info-container{
+    margin: 0% 2%;
+    min-width: 36%;
+    min-height: 50%;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
+}
+
+.o-button-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.o-create-account-button{
+    margin: 5vh 0vw;
+    background-color: transparent;  /* Green */
+    border: none;
+    color: white;
+    padding: 0px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.o-create-account-button:hover{
+    box-shadow: 0px 2px 0px 0px white;
+}
+
+.o-login-image{
+    height: 100%;
+    width: 60%;
+}
