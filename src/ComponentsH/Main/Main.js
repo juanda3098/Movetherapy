@@ -8,6 +8,7 @@ import ServiceTab from "../ServicesTab/ServicesTab";
 import AboutUs from "../AboutUs/AboutUs";
 import ContactUs from "../ContactUs/ContactUs"
 import Login from "../Login/Login"
+import CreateAccount from "../CreateAccount/CreateAccount"
 
 import "./Main.css";
 
@@ -21,6 +22,7 @@ function Main() {
         <Route path="/AboutUs" exact component={AboutUs} />
         <Route path="/ContactUs" exact component={ContactUs} />
         <Route path="/Login" exact component={Login} />
+        <Route path="/CreateAccount" exact component={CreateAccount} />
         {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
       </Switch>
     </BrowserRouter>

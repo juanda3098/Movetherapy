@@ -2,6 +2,7 @@ import React from 'react';
 import "./../ContactUs/ContactUs.css";
 import "./Login.css"
 import MTfront from "./../../Img/MoveTherapyFront.png"
+import { Link } from "react-router-dom";
 
 const Login = () => {
     return (
@@ -15,7 +16,9 @@ const Login = () => {
                     <input className="o-input" type="password" placeholder="Escriba su contraseña"></input>
                     <div className="o-button-container">
                         <button className="o-button">Enviar</button>
-                        <button className="o-create-account-button">Crear Cuenta</button>
+                        <Link to="/CreateAccount">
+                            <button className="o-create-account-button">Crear Cuenta</button>
+                        </Link>
                     </div>
                 </div>
                 <img className="o-login-image" src={MTfront}></img>
