@@ -22,7 +22,7 @@ function HeaderHomePage() {
         <Link to="/ContactUs">
           <button className="o-header-button">Contactenos</button>
         </Link>
-        <Link to="/">
+        <Link to="/Login">
           <button className="o-header-button">Ingresar</button>
         </Link>
       </div>
