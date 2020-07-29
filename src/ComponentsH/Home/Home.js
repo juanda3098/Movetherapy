@@ -38,7 +38,7 @@ function Home() {
         <img src={Img4} alt="" />
       </div>
       <div className="o-services">
-        <h1>Nuestros Servicios</h1>
+        <h1 className="o-title-sentence">Nuestros Servicios</h1>
         <div className="o-container-services">
           <div className="o-service">
             <h2>Acondicionamiento Físico</h2>
