@@ -4,19 +4,26 @@ import Profile from "../../Img/person.svg";
 
 import "./AboutUs.css";
 
+import MTFront from "../../Img/MoveTherapyFront.png"
+
 const AboutUs = () => {
   return (
     <div class="o-aboutus-container">
-      <div className="o-aboutus-title">
-        <h1 className="o-title-sentence">Quienes Somos</h1>
-        <h3>
-          Move Therapy es un centro de rehabilitación física fundada con la
-          finalidad de prestar servicios en fisioterapia, basados en métodos
-          diversos, buscando ofrecer calidad tanto humana como profesional,
-          entendiendo que la principal necesidad de los usuarios es que un
-          experto se interese por alcanzar unos objetivos junto a él, logrando
-          una recuperación optima y exitosa.
-        </h3>
+      <div class="o-aboutus-image-container">
+        <img className="o-aboutus-image" src={MTFront} alt="" />
+        <div class="o-info">
+          <div className="o-aboutus-info-container">
+          </div>
+          <div className="o-aboutus-info-container">
+            <h1 className="o-aboutus-title">Quienes Somos</h1>
+            <div className="o-aboutus-description">Move Therapy es un centro de rehabilitación física fundada con la
+            finalidad de prestar servicios en fisioterapia, basados en métodos
+            diversos, buscando ofrecer calidad tanto humana como profesional,
+            entendiendo que la principal necesidad de los usuarios es que un
+            experto se interese por alcanzar unos objetivos junto a él, logrando
+            una recuperación optima y exitosa.</div>
+          </div>
+        </div>
       </div>
       <div className="o-aboutus-team">
         <h1 className="o-title-sentence">Nuestro Equipo</h1>
