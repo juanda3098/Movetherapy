@@ -1,30 +1,62 @@
 .o-container-home {
     display: flex;
-    justify-content: space-around;
-    background: #D8EFC3;
-}
-
-.o-title {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 40px;
-    color: #312C7F;
-    margin-left: 5vw;
-    padding-top: 5vh;
-}
-
-.o-sentence {
-    margin: 0;
+    justify-content: flex-start;
 }
 
 .o-container-img {
-    padding: 10vh;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
 }
 
-.o-container-in {
-    margin: 12vh 0vh;
+.o-bg-img {
+    width: 80vw;
+    height: 90vh;
+}
+
+.o-title {
+    position: absolute;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 40px;
+    color: #ffffff;
+    background: linear-gradient(to right, #312C7F 20vw , rgba(49, 44, 127, 0.3) 90vw);
+}
+
+.o-sentence {
+    padding-left: 5vw;
+    margin: 0;
+}
+
+.o-title-content {
+    margin-bottom: 5vh;
+}
+
+.o-container-side {
+    margin: 10vh 0vh 0vh 0vh;
     color: #312C7F
+}
+
+.o-side-container-img {
+    position: absolute;
+    display: flex;
+}
+
+.o-side-img {
+    width: 50%;
+    height: 40vw;
+}
+
+.o-deg {
+    position: relative;
+    width: 100%;
+    height: 40vw;
+    background: linear-gradient(to right, rgba(49, 44, 127, 0.8) 0vw , rgba(49, 44, 127, 0.4) 25vw, rgba(49, 44, 127, 0.9) 50vw, rgba(49, 44, 127, 0.4) 75vw, rgba(49, 44, 127, 0.8) 100vw);
 }
 
 .o-title-sentence {
@@ -32,9 +64,8 @@
 }
 
 .o-services {
-    padding: 6vh 0vh;
-    background: #D8EFC3;
-    color: #312C7F
+    margin: 10vh 0vw;
+    color: rgba(49, 44, 127, 1);
 }
 
 .o-container-services {
@@ -45,13 +76,13 @@
 
 .o-service {
     margin: 1rem;
-    padding: 2rem 0rem;
-    width: 25vw;
-    background: rgb(255, 255, 255);
-    border-radius: 1rem;
+    width: 20vw;
+    background: rgba(49, 44, 127, 1);
+    color: rgb(255, 255, 255);
+    border-radius: 1vw;
 }
 
 .o-icon-service {
-    margin: 2rem 0rem;
-    width: 10rem;
+    margin-bottom: 3vh;
+    width: 15rem;
 }
