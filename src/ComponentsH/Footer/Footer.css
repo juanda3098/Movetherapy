@@ -1,0 +1,12 @@
+.o-container-footer {
+    background: rgba(49, 44, 127, 1);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 2vh;
+}
+
+.o-footer-info {
+    width: 60vw;
+}
+

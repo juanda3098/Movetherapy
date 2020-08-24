@@ -1,6 +1,6 @@
 import React from "react";
 
-import Profile from "../../Img/person.svg";
+// import Profile from "../../Img/person.svg";
 
 import "./AboutUs.css";
 

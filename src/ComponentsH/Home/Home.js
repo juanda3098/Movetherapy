@@ -37,7 +37,7 @@ function Home() {
             <img src={Img2} className="o-side-img" alt="" />
             <img src={Img3} className="o-side-img" alt="" />
         </div>
-        <div className="o-deg" />
+        {/* <div className="o-deg" /> */}
       </div>
       <div className="o-services">
         <h1 className="o-title-sentence">Nuestros Servicios</h1>
