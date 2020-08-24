@@ -42,7 +42,7 @@ const ContactUs = () => {
         />
       </div>
       <div className="o-contact-info-container">
-        <h1 className="o-contact-title">CONTÁCTANOS</h1>
+        <h1 className="o-contact-title">PIDE TU CITA</h1>
         <div>
           <div className="o-contact-info">
             <InstaLogo />
