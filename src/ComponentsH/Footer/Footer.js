@@ -1,11 +1,11 @@
 import React from "react";
 
-import "./Footer";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div>
-      <div>
+    <div className="o-container-footer">
+      <div className="o-footer-info">
         <h2>Titulo</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -17,7 +17,7 @@ const Footer = () => {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </div>
-      <div>
+      <div className="o-footer-social">
         <h2>Síguenos</h2>
         <div>
             
