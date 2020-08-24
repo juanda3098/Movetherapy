@@ -9,6 +9,7 @@ import AboutUs from "../AboutUs/AboutUs";
 import ContactUs from "../ContactUs/ContactUs"
 import Login from "../Login/Login"
 import CreateAccount from "../CreateAccount/CreateAccount"
+import Footer from "../Footer/Footer";
 
 import "./Main.css";
 
@@ -25,6 +26,7 @@ function Main() {
         <Route path="/CreateAccount" exact component={CreateAccount} />
         {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
