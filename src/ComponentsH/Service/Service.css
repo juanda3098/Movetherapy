@@ -1,37 +1,43 @@
 .o-image-container {
-    position: relative;
-    height: 50vh;
-    max-height: 50vh;
+    margin: 10rem 0rem;
+    width: 100%;
+    height: 35vh;
+    max-height: 35vh;
     display: flex;
     align-items: center;
     justify-content: center;
     object-fit: contain;
+    background-color: rgba(240, 248, 255, 0.829);;
 }
 
 .o-image{
-    width:100%; 
-    height:100%; 
-    object-fit: fill; 
+    margin: 10vw;
+    width:20vw; 
+    height:20vw; 
+    object-fit: fill;
+    border-radius: 10vw;
+    border: 4px solid #312C7F;
 }
 
 .o-image-container .o-info{
-    position: absolute;
-    background-color: rgba(240, 248, 255, 0.829);
     width: 100%;
-    height: 70%;
+    height: 100%;
     color: #312C7F;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 .o-service-title{
+    margin: 1rem 0rem;
     font-size: 56px;
+    text-align: left;
 }
 
 .o-service-description{
-    width: 40%;
-    max-width: 40%;
+    width: 60%;
+    max-width: 60%;
     font-size: 22px;
     word-wrap: normal;
     text-align: left;

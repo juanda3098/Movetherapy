@@ -1,16 +1,19 @@
 import React from 'react';
 import Service from '../Service/Service';
 
+import ServiceFisio from "../../Img/Services/Fisio.jpg"
+import ServiceInvasive from "../../Img/Services/Invasive.jpg"
+
 function ServicesTab() {
   return (
     <div className="o-services-container">
-      <Service stImage="https://cdn.pixabay.com/photo/2017/10/10/22/24/wide-format-2839089_960_720.jpg" stTitle="FISIOTERAPIA" stDescription="Programa orientado a la recuperación física de
+      <Service stImage={ServiceFisio} stTitle="FISIOTERAPIA" stDescription="Programa orientado a la recuperación física de
       personas con lesiones musculares, articulares,
       ligamentosa y todas las relacionadas con el
       sistema osteomuscular, de igual manera
       contamos con tratamiento pre operatorio y post
       operatorio de múltiples lesiones." numOrientation="1"></Service>
-      <Service stImage="https://cdn.pixabay.com/photo/2017/10/10/22/24/wide-format-2839089_960_720.jpg" stTitle="FISIOTERAPIA INVASIVA" stDescription="Programa orientado a la recuperación física de
+      <Service stImage={ServiceInvasive}  stTitle="FISIOTERAPIA INVASIVA" stDescription="Programa orientado a la recuperación física de
       personas con lesiones musculares, articulares,
       ligamentosa y todas las relacionadas con el
       sistema osteomuscular, de igual manera
