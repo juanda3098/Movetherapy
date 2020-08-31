@@ -77,12 +77,12 @@
     background-color: #7CC836;
     color: #312C7F;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 .o-contact-title{
-    font-size: 64px;
+    font-size: 40px;
     margin-left: 10vw; 
 }
 

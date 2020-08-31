@@ -1,5 +1,5 @@
 import React from 'react';
-import "./ContactUs.css";
+import "./../ContactUs/ContactUs.css";
 
 const WALogo = () => {
     return (
