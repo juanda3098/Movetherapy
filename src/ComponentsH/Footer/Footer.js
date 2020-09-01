@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="o-container-footer">
       <div className="o-footer-info">
-        <h2>Titulo</h2>
+        <h2>Título</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
