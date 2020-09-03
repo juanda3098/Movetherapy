@@ -1,8 +1,7 @@
 import React from "react";
 
-// import Profile from "../../Img/person.svg";
-
 import "./AboutUs.css";
+import ScriptTag from 'react-script-tag';
 
 import MTFront from "../../Img/MTFront-AboutUs.png"
 import ProfileDiana from "../../Img/People/DianaMesa.jpg"
@@ -80,16 +79,8 @@ const AboutUs = () => {
         </h3>
       </div>
       <div className="o-aboutus-ig">
-        <h1>Nuestras Redes</h1>
-        <iframe
-          title="Instagram"
-          width="60%"
-          height="500vh"
-          frameborder="0"
-          style={{ border: 0 }}
-          src="https://www.instagram.com/therapymove/"
-          allowfullscreen
-        />
+        <ScriptTag isHydrating={true} type="text/javascript" src="https://apps.elfsight.com/p/platform.js"/>
+        <div class="elfsight-app-d88966d5-7094-46fa-b5d9-9dc33021cc81"></div>
       </div>
     </div>
   );

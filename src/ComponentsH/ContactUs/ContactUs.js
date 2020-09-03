@@ -1,7 +1,6 @@
 import React from "react";
 import "./ContactUs.css";
 import InstaLogo from "./InstaLogo";
-import WALogo from "./WALogo";
 
 const ContactUs = () => {
   return (
@@ -42,15 +41,11 @@ const ContactUs = () => {
         />
       </div>
       <div className="o-contact-info-container">
-        <h1 className="o-contact-title">PIDE TU CITA</h1>
+        <h1 className="o-contact-title">SIGUENOS EN REDES SOCIALES</h1>
         <div>
           <div className="o-contact-info">
             <InstaLogo />
             <p className="o-text">@therapymove</p>
-          </div>
-          <div className="o-contact-info">
-            <WALogo />
-            <p className="o-text">+57 3114536894</p>
           </div>
         </div>
       </div>
