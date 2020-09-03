@@ -20,7 +20,7 @@ const AboutUs = () => {
           <div className="o-aboutus-info-container">
           </div>
           <div className="o-aboutus-info-container">
-            <h1 className="o-aboutus-title">Quienes Somos</h1>
+            <h1 className="o-aboutus-title">Quiénes Somos</h1>
             <div className="o-aboutus-description">Move Therapy es un centro de rehabilitación física fundada con la
             finalidad de prestar servicios en fisioterapia, basados en métodos
             diversos, buscando ofrecer calidad tanto humana como profesional,

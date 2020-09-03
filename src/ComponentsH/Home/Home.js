@@ -34,8 +34,8 @@ function Home() {
           necesidades.
         </h2>
         <div className="o-side-container-img">
-            <img src={Img2} className="o-side-img" alt="" />
-            <img src={Img3} className="o-side-img" alt="" />
+          <img src={Img2} className="o-side-img" alt="" />
+          <img src={Img3} className="o-side-img" alt="" />
         </div>
         {/* <div className="o-deg" /> */}
       </div>
@@ -43,37 +43,53 @@ function Home() {
         <h1 className="o-title-sentence">Nuestros Servicios</h1>
         <div className="o-container-services">
           <div className="o-service">
-            <h3>Fisioterapia</h3>
             <img className="o-icon-service" src={Img4} alt="" />
+            <div className="o-container-title">
+              <p className="o-home-service-title">Fisioterapia</p>
+            </div>
           </div>
           <div className="o-service">
-            <h3>Drenaje Linfático</h3>
             <img className="o-icon-service" src={Img5} alt="" />
+            <div className="o-container-title">
+              <p className="o-home-service-title">Drenaje Linfático</p>
+            </div>
           </div>
           <div className="o-service">
-            <h3>Fisioterapia Invasiva</h3>
             <img className="o-icon-service" src={Img6} alt="" />
+            <div className="o-container-title">
+              <p className="o-home-service-title">Fisioterapia Invasiva</p>
+            </div>
           </div>
           <div className="o-service">
-            <h3>Nutrición</h3>
             <img className="o-icon-service" src={Img7} alt="" />
+            <div className="o-container-title">
+              <p className="o-home-service-title">Nutrición</p>
+            </div>
           </div>
           <div className="o-service">
-            <h3>Readaptación Deportiva</h3>
             <img className="o-icon-service" src={Img8} alt="" />
+            <div className="o-container-title">
+              <p className="o-home-service-title">Readaptación Deportiva</p>
+            </div>
           </div>
           <div className="o-service">
-            <h3>Acondicionamiento Físico</h3>
             <img className="o-icon-service" src={Img9} alt="" />
+            <div className="o-container-title">
+              <p className="o-home-service-title">Acondicionamiento Físico</p>
+            </div>
           </div>
           <div className="o-service">
-            <h3>Bienestar Laboral</h3>
             <img className="o-icon-service" src={Img10} alt="" />
+            <div className="o-container-title">
+              <p className="o-home-service-title">Bienestar Laboral</p>
+            </div>
           </div>
           <div className="o-service">
-            <h3>Acompañamiento Deportivo</h3>
             <img className="o-icon-service" src={Img11} alt="" />
-          </div>          
+            <div className="o-container-title">
+              <p className="o-home-service-title">Acompañamiento Deportivo</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

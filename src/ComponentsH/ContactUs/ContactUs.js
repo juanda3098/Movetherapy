@@ -7,7 +7,7 @@ const ContactUs = () => {
     <div className="o-contactus-tab-container">
       <div className="o-contactus-container">
         <div className="o-client-info-container">
-          <h2>Envianos un mensaje</h2>
+          <h2>Envíanos un mensaje</h2>
           <p>Nombre</p>
           <input
             className="o-input"

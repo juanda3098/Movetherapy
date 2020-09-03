@@ -2,18 +2,19 @@ import React from "react";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import HeaderHomePage from "../HeaderHomePage/HeaderHomePage";
+import HeaderHomePage from "..//HeaderHomePage/HeaderHomePage";
+import Footer from "../Footer/Footer";
+
 import Home from "../Home/Home"
 import ServiceTab from "../ServicesTab/ServicesTab";
 import AboutUs from "../AboutUs/AboutUs";
 import ContactUs from "../ContactUs/ContactUs"
 import Login from "../Login/Login"
 import CreateAccount from "../CreateAccount/CreateAccount"
-import Footer from "../Footer/Footer";
 
-import "./Main.css";
+import "./Page.css";
 
-function Main() {
+function Page() {
   return (
     <BrowserRouter>
       <HeaderHomePage />
@@ -31,4 +32,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Page;

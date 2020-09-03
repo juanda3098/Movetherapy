@@ -17,10 +17,10 @@ function HeaderHomePage() {
           <button className="o-header-button">Servicios</button>
         </Link>
         <Link to="/AboutUs">
-          <button className="o-header-button">Quienes Somos</button>
+          <button className="o-header-button">Quiénes Somos</button>
         </Link>
         <Link to="/ContactUs">
-          <button className="o-header-button">Contactenos</button>
+          <button className="o-header-button">Contáctenos</button>
         </Link>
         <Link to="/Login">
           <button className="o-header-button">Ingresar</button>

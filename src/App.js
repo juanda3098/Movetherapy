@@ -1,6 +1,6 @@
 import React from "react";
 
-import Main from "./ComponentsH/Main/Main";
+import Main from "./Main/Main";
 
 import "./App.css";
 
