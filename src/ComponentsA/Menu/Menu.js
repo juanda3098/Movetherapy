@@ -16,6 +16,8 @@ function Menu() {
             {/* <Link to={`${url}/Users`}><p>user</p></Link>
             <Link to={`${url}/Exercise`}><p>exercise</p></Link> */}
 
+            <img src={Logo} alt="" className="o-img-headerA-logo" />
+
             <Link to="/Admin/Users"><p>Pacientes</p></Link>
             <Link to="/Admin/Appointment"><p>Citas</p></Link>
             <Link to="/Admin/Routine"><p>Rutinas</p></Link>

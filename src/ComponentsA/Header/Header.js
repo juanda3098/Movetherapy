@@ -4,7 +4,7 @@ import './Header.css'
 
 function Header() {
     return(
-        <div>
+        <div className="o-headerA-container">
             header
         </div>
     )

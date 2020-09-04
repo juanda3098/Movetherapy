@@ -4,10 +4,10 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Menu from "../Menu/Menu";
-import Users from "../Users/Users";
+import Patients from "../Patients/Patients";
 import Exercise from "../Exercise/Exercise";
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 import "./Admin.css";
 
@@ -20,21 +20,18 @@ function Admin() {
         <div className="o-admin-menu">
           <Menu />
         </div>
-
         <div className="o-admin-field">
           {/* <div className="o-admin-fild-header">
-            
           </div> */}
           <Header />
-          
-          <Switch>
-            
-            {/* <Route path={`${path}/Users`} exact component={UsersA} />
+          <div className="o-admin-body">
+            <Switch>
+              {/* <Route path={`${path}/Users`} exact component={UsersA} />
         <Route path={`${path}/Exercise`} exact component={ExerciseA} /> */}
-
-            <Route path="/Admin/Users" exact component={Users} />
-            <Route path="/Admin/Exercise" exact component={Exercise} />
-          </Switch>
+              <Route path="/Admin/Patient" exact component={Patients} />
+              <Route path="/Admin/Exercise" exact component={Exercise} />
+            </Switch>
+          </div>
           <Footer />
         </div>
       </div>
