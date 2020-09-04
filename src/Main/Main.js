@@ -12,7 +12,7 @@ const Main = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Page} />
-        <Route path="/Admin" exact component={Admin} />
+        <Route path="/Admin" component={Admin} />
         {/* <Route path="/User" exact component={User} /> */}
 
         {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}

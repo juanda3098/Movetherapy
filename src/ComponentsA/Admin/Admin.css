@@ -1,0 +1,26 @@
+.o-admin-container {
+    background: khaki;
+    display: flex;
+    justify-content: space-between;
+}
+
+.o-admin-menu {
+    background: blue;
+    width: 6vw;
+    height: 100vh;
+}
+
+.o-admin-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: green;
+    width: 93.1vw;
+    height: 100vh;
+}
+
+.o-admin-body {
+    background: indigo;
+    width: 100%;
+    height: 83vh;
+}
