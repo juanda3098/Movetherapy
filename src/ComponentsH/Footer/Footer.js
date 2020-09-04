@@ -1,12 +1,13 @@
 import React from "react";
 
 import "./Footer.css";
+import WALogo from "./WALogo";
 
 const Footer = () => {
   return (
     <div className="o-container-footer">
       <div className="o-footer-info">
-        <h2>Título</h2>
+        <h2>PIDE TU CITA</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -17,11 +18,9 @@ const Footer = () => {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </div>
-      <div className="o-footer-social">
-        <h2>Síguenos</h2>
-        <div>
-            
-        </div>
+      <div className="o-footer-contact" onClick="href">
+            <WALogo />
+            <a href="https://wa.link/dl0k62" target="_blank" className="o-text">+57 3117848826</a>
       </div>
     </div>
   );
