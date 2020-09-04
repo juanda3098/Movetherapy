@@ -2,6 +2,7 @@ import React from "react";
 
 import "./AboutUs.css";
 import ScriptTag from 'react-script-tag';
+import InstaEmbed from "./Instaembed/InstaEmbed";
 
 import MTFront from "../../Img/MTFront-AboutUs.png"
 import ProfileDiana from "../../Img/People/DianaMesa.jpg"
@@ -78,9 +79,8 @@ const AboutUs = () => {
           brindarle la mejor atención y calidad en el servicio.
         </h3>
       </div>
-      <div className="o-aboutus-ig">
-        <ScriptTag isHydrating={true} type="text/javascript" src="https://apps.elfsight.com/p/platform.js"/>
-        <div class="elfsight-app-d88966d5-7094-46fa-b5d9-9dc33021cc81"></div>
+      <div className="o-aboutus-ig"> 
+        <InstaEmbed/>
       </div>
     </div>
   );
