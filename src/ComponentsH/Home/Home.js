@@ -1,16 +1,16 @@
 import React from "react";
 
-import Img1 from "../../Img/img1.jpg";
-import Img2 from "../../Img/img2.jpg";
-import Img3 from "../../Img/img3.jpg";
-import Img4 from "../../Img/img4.jpg";
-import Img5 from "../../Img/img5.jpg";
-import Img6 from "../../Img/img6.jpg";
-import Img7 from "../../Img/img7.jpg";
-import Img8 from "../../Img/img8.jpg";
-import Img9 from "../../Img/img9.jpg";
-import Img10 from "../../Img/img10.jpg";
-import Img11 from "../../Img/img11.jpg";
+import Img1 from '../../Img/Page/img1.jpg'
+import Img2 from '../../Img/Page/img2.jpg'
+import Img3 from '../../Img/Page/img3.jpg'
+import Img4 from '../../Img/Page/img4.jpg'
+import Img5 from '../../Img/Page/img5.jpg'
+import Img6 from '../../Img/Page/img6.jpg'
+import Img7 from '../../Img/Page/img7.jpg'
+import Img8 from '../../Img/Page/img8.jpg'
+import Img9 from '../../Img/Page/img9.jpg'
+import Img10 from '../../Img/Page/img10.jpg'
+import Img11 from '../../Img/Page/img11.jpg'
 
 import "./Home.css";
 

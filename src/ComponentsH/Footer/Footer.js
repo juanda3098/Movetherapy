@@ -20,7 +20,7 @@ const Footer = () => {
       </div>
       <div className="o-footer-contact" onClick="href">
             <WALogo />
-            <a href="https://wa.link/dl0k62" target="_blank" className="o-text">+57 3117848826</a>
+            <a href="https://wa.link/dl0k62" target="_blank" rel="noopener noreferrer" className="o-text">+57 3117848826</a>
       </div>
     </div>
   );

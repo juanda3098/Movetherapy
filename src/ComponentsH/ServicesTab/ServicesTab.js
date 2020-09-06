@@ -1,14 +1,14 @@
 import React from 'react';
 import Service from '../Service/Service';
 
-import Img4 from "../../Img/img4.jpg";
-import Img5 from "../../Img/img5.jpg";
-import Img6 from "../../Img/img6.jpg";
-import Img7 from "../../Img/img7.jpg";
-import Img8 from "../../Img/img8.jpg";
-import Img9 from "../../Img/img9.jpg";
-import Img10 from "../../Img/img10.jpg";
-import Img11 from "../../Img/img11.jpg";
+import Img4 from "../../Img/Page/img4.jpg";
+import Img5 from "../../Img/Page/img5.jpg";
+import Img6 from "../../Img/Page/img6.jpg";
+import Img7 from "../../Img/Page/img7.jpg";
+import Img8 from "../../Img/Page/img8.jpg";
+import Img9 from "../../Img/Page/img9.jpg";
+import Img10 from "../../Img/Page/img10.jpg";
+import Img11 from "../../Img/Page/img11.jpg";
 
 function ServicesTab() {
   return (

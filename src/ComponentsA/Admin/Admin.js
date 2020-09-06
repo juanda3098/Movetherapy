@@ -7,7 +7,6 @@ import Menu from "../Menu/Menu";
 import Patients from "../Patients/Patients";
 import Exercise from "../Exercise/Exercise";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 
 import "./Admin.css";
 
@@ -32,7 +31,6 @@ function Admin() {
               <Route path="/Admin/Exercise" exact component={Exercise} />
             </Switch>
           </div>
-          <Footer />
         </div>
       </div>
     </BrowserRouter>
