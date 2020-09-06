@@ -1,3 +1,5 @@
+@import '../../variableStyles.scss';
+
 .o-admin-container {
     background: khaki;
     display: flex;
@@ -5,7 +7,7 @@
 }
 
 .o-admin-menu {
-    background: blue;
+    background: $blue;
     width: 6vw;
     height: 100vh;
 }
@@ -15,12 +17,12 @@
     flex-direction: column;
     justify-content: space-between;
     background: green;
-    width: 93.1vw;
+    width: 93vw;
     height: 100vh;
 }
 
 .o-admin-body {
     background: indigo;
     width: 100%;
-    height: 83vh;
+    height: 90vh;
 }

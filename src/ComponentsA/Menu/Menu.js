@@ -3,9 +3,9 @@ import React from 'react'
 // import { Link, useRouteMatch } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import Logo from '../../Img/LogoHeader.png'
+import Logo from '../../Img/Admin/Logo2.png'
 
-import './Menu.css'
+import './Menu.scss'
 
 function Menu() {
 

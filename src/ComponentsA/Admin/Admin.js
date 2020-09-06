@@ -8,7 +8,7 @@ import Patients from "../Patients/Patients";
 import Exercise from "../Exercise/Exercise";
 import Header from "../Header/Header";
 
-import "./Admin.css";
+import "./Admin.scss";
 
 function Admin() {
   // const { path } = useRouteMatch();

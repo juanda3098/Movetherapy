@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Patients.css'
+import './Patients.scss'
 
 function Patients() {
 
