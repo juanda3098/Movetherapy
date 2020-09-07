@@ -1,0 +1,44 @@
+.o-header-user-container{
+    margin-left: 0px;
+    background-color: #312C7F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.o-header-user-buttons-container{
+    margin: 5vh 5vw;
+}
+
+.o-header-user-button{
+    margin: 0rem 1rem;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    background-color: #312C7F;
+    outline:none;
+    transition: 0.4s;
+}
+
+.o-header-user-button:hover{
+    box-shadow: 0px 5px 0px 0px;
+}
+
+.o-header-user-logo {
+    margin-left: 5vw;
+    width: 20vw;
+}
+.o-flex{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.o-user-picture{
+    margin: 0rem 2rem;
+    height: 80px;
+    width: 80px;
+    border-radius:50%;
+    box-shadow: 0px 0px 5px 5px white;
+}
