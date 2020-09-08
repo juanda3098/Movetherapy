@@ -15,9 +15,7 @@ const Main = () => {
         <Route path="/" exact component={Page} />
         <Route path="/Admin" component={Admin} />
         <Route path="/User" exact component={UserPage}/>
-        
         {/* <Route path="/User" exact component={User} /> */}
-
         {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
       </Switch>
     </BrowserRouter>
