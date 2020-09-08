@@ -1,0 +1,26 @@
+@import '../../variableStyles.scss';
+
+.o-menuA-container {
+    background: $blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.o-img-logo {
+    width: 4vw;
+    padding: 1.5vw 0.5vw 1.5vw 0.5vw;
+    border-bottom: 2px solid $white;
+}
+
+.o-img-menu {
+    width: 2vw;
+    margin: 2vw 0vw 0vw 0vw;
+}
+
+.o-label-menu {
+    color: $white;
+    margin: 0vw;
+}

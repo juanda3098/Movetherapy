@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./AboutUs.css";
-import ScriptTag from 'react-script-tag';
+// import ScriptTag from 'react-script-tag';
 import InstaEmbed from "./Instaembed/InstaEmbed";
 
 import MTFront from "../../Img/MTFront-AboutUs.png"

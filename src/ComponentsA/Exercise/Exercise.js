@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Exercise.css'
+import './Exercise.scss'
 
 function Exercise() {
     return(

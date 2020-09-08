@@ -1,0 +1,26 @@
+@import '../../variableStyles.scss';
+
+.o-headerA-container {
+    background: $white;
+    color: $blue;
+    width: 87vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 2vw;
+}
+
+.o-title-headerA {
+    margin: 0vw;
+}
+
+.o-label-headerA {
+    display: flex;
+    align-items: center;
+}
+
+.o-headerA-logout {
+    width: 1.5vw;
+    margin-left: 1vw;
+}
