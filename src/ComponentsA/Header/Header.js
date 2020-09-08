@@ -1,13 +1,28 @@
-import React from 'react'
+import React , { useState } from 'react'
+
+import Logout from '../../Img/Admin/logout.svg';
 
 import './Header.scss'
 
 function Header() {
+
+    const [title, setTitle] = useState("Panel de control");
+    const [admin, setaAmin] = useState("Diana Mesa");
+
+    const outputEvents = () => {
+        setTitle();
+        setaAmin();
+    }
+
     return(
         <div className="o-headerA-container">
-            header
+            <h2 className="o-title-headerA">{title}</h2>
+            <div className="o-label-headerA">
+                <p>{admin}</p>
+                <img src={Logout} alt="" className="o-headerA-logout" />
+            </div>
         </div>
     )
 }
 
-export default Header
+export default Header;
