@@ -22,19 +22,19 @@ function Menu() {
 
       <img src={Logo} alt="" className="o-img-logo" />
 
-      <Link to="/Admin/Patient">
+      <Link to="/Admin/Patient" className="o-link-menu">
         <img src={Patient} alt="" className="o-img-menu" />
         <p className="o-label-menu">Pacientes</p>
       </Link>
-      <Link to="/Admin/Appointment">
+      <Link to="/Admin/Appointment" className="o-link-menu">
         <img src={Appointment} alt="" className="o-img-menu" />
         <p className="o-label-menu">Citas</p>
       </Link>
-      <Link to="/Admin/Routine">
+      <Link to="/Admin/Routine" className="o-link-menu">
         <img src={Routine} alt="" className="o-img-menu" />
         <p className="o-label-menu">Rutinas</p>
       </Link>
-      <Link to="/Admin/Exercise">
+      <Link to="/Admin/Exercise" className="o-link-menu">
         <img src={Exercise} alt="" className="o-img-menu" />
         <p className="o-label-menu">Ejercicios</p>
       </Link>
@@ -42,7 +42,7 @@ function Menu() {
         <img src={Physio} alt="" className="o-img-menu" />
         <p>Fisioterapeutas</p>
       </Link> */}
-      <Link to="/Admin/Profile">
+      <Link to="/Admin/Profile" className="o-link-menu">
         <img src={Profile} alt="" className="o-img-menu" />
         <p className="o-label-menu">Perfiles</p>
       </Link>

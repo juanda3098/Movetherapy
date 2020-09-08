@@ -1,10 +1,10 @@
 import React from "react";
 
-import "./Exercise.scss";
+import "./Profile.scss";
 
-function Exercise() {
+function Profile() {
   return (
-    <div className="o-routine-detail">
+    <div className="o-profile-detail">
       <p style={{ width: "21vw" }}>Juan David Posso Rengifo</p>
       <p style={{ width: "36vw" }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -16,4 +16,4 @@ function Exercise() {
   );
 }
 
-export default Exercise;
+export default Profile;

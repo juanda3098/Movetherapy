@@ -16,15 +16,16 @@ function Patients() {
         </div>
         <div className="o-patients-field">
           <div className="o-patient-label">
-            <h4>Nombre</h4>
-            <h4>Cédula</h4>
-            <h4 style={{marginRight:'1.2vw'}}>Problema</h4>
+            <h4 style={{ width: "21vw" }}>Nombre</h4>
+            <h4 style={{ width: "14vw" }}>Cédula</h4>
+            <h4 style={{ width: "22vw" }}>Problema</h4>
           </div>
           <div className="o-patients-list">
             <Patient />
             <Patient />
             <Patient />
             <Patient />
+            {/* <Patient />
             <Patient />
             <Patient />
             <Patient />
@@ -33,8 +34,7 @@ function Patients() {
             <Patient />
             <Patient />
             <Patient />
-            <Patient />
-            <Patient />
+            <Patient /> */}
           </div>
           <div className="o-add-container">
             <img src={Add} alt="" className="o-add-patient" />
