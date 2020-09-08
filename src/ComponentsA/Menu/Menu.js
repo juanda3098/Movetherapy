@@ -1,31 +1,53 @@
-import React from 'react'
+import React from "react";
 
-// import { Link, useRouteMatch } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import Logo from '../../Img/Admin/Logo2.png'
+import Logo from "../../Img/Admin/Logo.svg";
+import Patient from '../../Img/Admin/patient.svg';
+import Appointment from '../../Img/Admin/appointment.svg';
+import Routine from '../../Img/Admin/routine.svg';
+import Exercise from '../../Img/Admin/exercise.svg';
+// import Physio from '../../Img/Admin/physio.svg';
+import Profile from '../../Img/Admin/profile.svg';
 
-import './Menu.scss'
+import "./Menu.scss";
 
 function Menu() {
+  // const { url } = useRouteMatch();
 
-    // const { url } = useRouteMatch();
-
-    return(
-        <div className="o-menu-container">
-            {/* <Link to={`${url}/Users`}><p>user</p></Link>
+  return (
+    <div className="o-menuA-container">
+      {/* <Link to={`${url}/Users`}><p>user</p></Link>
             <Link to={`${url}/Exercise`}><p>exercise</p></Link> */}
 
-            <img src={Logo} alt="" className="o-img-headerA-logo" />
+      <img src={Logo} alt="" className="o-img-logo" />
 
-            <Link to="/Admin/Users"><p>Pacientes</p></Link>
-            <Link to="/Admin/Appointment"><p>Citas</p></Link>
-            <Link to="/Admin/Routine"><p>Rutinas</p></Link>
-            <Link to="/Admin/Exercise"><p>Ejercicios</p></Link>
-            <Link to="/Admin/Fisio"><p>Fisioterapeutas</p></Link>
-
-        </div>
-    )
+      <Link to="/Admin/Patient">
+        <img src={Patient} alt="" className="o-img-menu" />
+        <p className="o-label-menu">Pacientes</p>
+      </Link>
+      <Link to="/Admin/Appointment">
+        <img src={Appointment} alt="" className="o-img-menu" />
+        <p className="o-label-menu">Citas</p>
+      </Link>
+      <Link to="/Admin/Routine">
+        <img src={Routine} alt="" className="o-img-menu" />
+        <p className="o-label-menu">Rutinas</p>
+      </Link>
+      <Link to="/Admin/Exercise">
+        <img src={Exercise} alt="" className="o-img-menu" />
+        <p className="o-label-menu">Ejercicios</p>
+      </Link>
+      {/* <Link to="/Admin/Physio">
+        <img src={Physio} alt="" className="o-img-menu" />
+        <p>Fisioterapeutas</p>
+      </Link> */}
+      <Link to="/Admin/Profile">
+        <img src={Profile} alt="" className="o-img-menu" />
+        <p className="o-label-menu">Perfiles</p>
+      </Link>
+    </div>
+  );
 }
 
-export default Menu
+export default Menu;
