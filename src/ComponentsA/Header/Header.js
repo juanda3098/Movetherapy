@@ -6,13 +6,15 @@ import './Header.scss'
 
 function Header() {
 
-    const [title, setTitle] = useState("Panel de control");
-    const [admin, setaAmin] = useState("Diana Mesa");
+    const [title] = useState("Panel de control");
+    const [admin] = useState("Diana Mesa");
+    // const [title, setTitle] = useState("Panel de control");
+    // const [admin, setaAmin] = useState("Diana Mesa");
 
-    const outputEvents = () => {
-        setTitle();
-        setaAmin();
-    }
+    // const outputEvents = () => {
+    //     setTitle();
+    //     setaAmin();
+    // }
 
     return(
         <div className="o-headerA-container">

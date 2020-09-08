@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./Exercise.scss";
+import "./Routine.scss";
 
-function Exercise() {
+function Routine() {
   return (
     <div className="o-routine-detail">
       <p style={{ width: "21vw" }}>Juan David Posso Rengifo</p>
@@ -16,4 +16,4 @@ function Exercise() {
   );
 }
 
-export default Exercise;
+export default Routine;
