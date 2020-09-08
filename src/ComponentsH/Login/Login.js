@@ -15,8 +15,10 @@ const Login = () => {
                     <p>Contraseña</p>
                     <input className="o-input" type="password" placeholder="Escriba su contraseña"></input>
                     <div className="o-button-container">
-                        <button className="o-button">Enviar</button>
-                        <Link to="/CreateAccount">
+                        <Link to="/User">
+                            <button className="o-button">Enviar</button>
+                        </Link>
+                        <Link to="/Main/CreateAccount">
                             <button className="o-create-account-button">Crear Cuenta</button>
                         </Link>
                     </div>
