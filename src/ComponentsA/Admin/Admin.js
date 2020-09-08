@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import React from "react";
 
 // import { BrowserRouter, Switch, Route, useRouteMatch } from "react-router-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -14,11 +15,11 @@ import "./Admin.scss";
 
 function Admin() {
 
-  const [admin, setaAdmin] = useState("Diana Mesa");
+  // const [admin, setaAdmin] = useState("Diana Mesa");
 
-  const outputEvents = () => {
-    setaAdmin(admin)
-  }
+  // const outputEvents = () => {
+  //   setaAdmin(admin)
+  // }
 
   return (
     <BrowserRouter>
