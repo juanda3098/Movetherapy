@@ -1,14 +1,13 @@
 @import '../../variableStyles.scss';
 
 .o-admin-container {
-    background: khaki;
+    background: $grey;
     display: flex;
     justify-content: space-between;
 }
 
 .o-admin-menu {
-    background: $blue;
-    width: 6vw;
+    width: 8vw;
     height: 100vh;
 }
 
@@ -16,13 +15,31 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: green;
-    width: 93vw;
+    background: $grey;
+    width: 91vw;
     height: 100vh;
 }
 
 .o-admin-body {
-    background: indigo;
+    background: $white;
     width: 100%;
     height: 90vh;
+}
+
+.o-body-welcome {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $blue;
+}
+
+.o-img-welcome {
+    width: 60vw;
+}
+
+.o-title-welcome {
+    margin: 0vw;
 }
