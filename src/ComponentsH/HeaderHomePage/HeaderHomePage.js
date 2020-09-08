@@ -13,16 +13,16 @@ function HeaderHomePage() {
         <img className="o-header-logo" src={Logo} alt="" />
       </Link>
       <div className="o-header-buttons-container">
-        <Link to="/Services">
+        <Link to="/Main/Services">
           <button className="o-header-button">Servicios</button>
         </Link>
-        <Link to="/AboutUs">
-          <button className="o-header-button">Quiénes Somos</button>
+        <Link to="/Main/AboutUs">
+          <button className="o-header-button">Quienes Somos</button>
         </Link>
-        <Link to="/ContactUs">
-          <button className="o-header-button">Contáctenos</button>
+        <Link to="/Main/ContactUs">
+          <button className="o-header-button">Contactenos</button>
         </Link>
-        <Link to="/Login">
+        <Link to="/Main/Login">
           <button className="o-header-button">Ingresar</button>
         </Link>
       </div>
