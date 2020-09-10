@@ -36,6 +36,7 @@ function Appointment() {
         <div className="o-appointments-field">
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            events={events}
             headerToolbar={{
               left: "prev,next today",
               center: "title",
