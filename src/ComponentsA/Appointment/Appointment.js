@@ -36,6 +36,7 @@ function Appointment() {
         <div className="o-appointments-field">
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            events={events}
             headerToolbar={{
               left: "prev,next today",
               center: "title",
@@ -45,7 +46,7 @@ function Appointment() {
               today: "Hoy",
               month: "Mes",
               week: "Semana",
-              day: "Día"
+              day: "Día",
             }}
             editable={true}
             selectable={true}
@@ -60,6 +61,15 @@ function Appointment() {
             }}
             nowIndicator={true}
             locale="es"
+            dateClick={(e) => {
+              //handle date click
+              console.log(e);
+              console.log(e.date);
+            }}
+            eventClick={function (e) {
+              // e.jsEvent.preventDefault(); // don't let the browser navigate
+              console.log(e);
+            }}
           />
         </div>
       </div>
