@@ -1,3 +1,5 @@
+@import "../../variableStyles.scss";
+
 .o-header-container{
     margin-left: 0px;
     display: flex;
@@ -13,9 +15,9 @@
     margin: 0rem 1rem;
     font-size: 22px;
     font-weight: bold;
-    color: #312C7F;
+    color: $blue;
     border: none;
-    background-color: rgb(255, 255, 255);
+    background-color: $white;
     outline:none;
     transition: 0.4s;
 }
