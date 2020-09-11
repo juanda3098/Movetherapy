@@ -1,0 +1,67 @@
+@import '../../variableStyles.scss';
+
+.o-container-footer {
+    height: 25vh;
+    background: $blue;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.o-footer-info {
+    margin-right: 5vw;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.o-footer-info h2 {
+    margin: 0vw 0vw 1vw 0vw;
+}
+
+.o-footer-info p {
+    margin: 0vw;
+    text-align: justify;
+}
+
+.o-footer-contact{
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.o-footer-contact h2 {
+    margin: 0vh 0vw 1vh 0vw;
+}
+
+.o-footer-contact .o-text{
+    margin: 0px 1rem;
+    color: $white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.4s;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+.o-footer-net {
+    display: flex;
+    align-items: center;
+}
+
+.o-text:hover{
+    box-shadow: 0px 5px 0px 0px;
+}
+
+.o-logo{
+    width: 2.5vw;
+    height: 2.5vw;
+    fill:$white;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.637);
+}

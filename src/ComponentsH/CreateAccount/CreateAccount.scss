@@ -1,19 +1,20 @@
+@import '../../variableStyles.scss';
 
-.o-createaccount-container{
+.o-createaccount-container {
     margin: 20px 0px;
     width: 90vw;
-    height: 78vh;
-    background-color: #7CC836;
+    height: 86vh;
+    background-color: $green;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.o-createaccount-info-container{
+.o-createaccount-info-container {
     margin: 5% 0% 2% 0%;
     min-width: 36%;
     min-height: 60%;
-    color: white;
+    color: $white;
     font-size: 20px;
     display: flex;
     flex-direction: column;
@@ -22,16 +23,16 @@
     align-self: center;
 }
 
-.o-select{
+.o-select {
     border-radius: 10px;
-    border: 2px solid white;
+    border: 2px solid $white;
     background-color: transparent;
-    color: white;
+    color: $white;
     font-size: 16px;
     padding: 5px 5px;
 }
 
-.o-createaccount-button{
+.o-createaccount-button {
     height: 50px;
     margin-left: 75vw;
     justify-self: flex-end;

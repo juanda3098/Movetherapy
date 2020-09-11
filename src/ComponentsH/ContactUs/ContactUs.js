@@ -1,6 +1,6 @@
 import React from "react";
-import "./ContactUs.css";
-import InstaLogo from "./InstaLogo";
+
+import './ContactUs.scss'
 
 const ContactUs = () => {
   return (
@@ -11,22 +11,22 @@ const ContactUs = () => {
           <p>Nombre</p>
           <input
             className="o-input"
-            placeholder="Escriba su nombre y apellidos"
+            placeholder="Escribe tu nombre y apellidos"
           ></input>
           <p>Corre Electrónico</p>
           <input
             className="o-input"
-            placeholder="Escriba su correo electronico"
+            placeholder="Escribe tu correo electrónico"
           ></input>
-          <p>Telefono</p>
+          <p>Teléfono</p>
           <input
             className="o-input"
-            placeholder="Numero de telefono o celular"
+            placeholder="Número de teléfono o celular"
           ></input>
           <p>Mensaje</p>
           <input
             className="o-input o-large-input"
-            placeholder="Escribe aqui tu mensaje"
+            placeholder="Escribe aquí tu mensaje"
           ></input>
           <button className="o-button">Enviar</button>
         </div>
@@ -39,15 +39,6 @@ const ContactUs = () => {
           src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDk4oy52Yq3t_cQwGCVSnxF6KyK7HNSVRw&q=Move+Therapy,Cali+Valle"
           allowfullscreen
         />
-      </div>
-      <div className="o-contact-info-container">
-        <h1 className="o-contact-title">SIGUENOS EN REDES SOCIALES</h1>
-        <div>
-          <div className="o-contact-info">
-            <InstaLogo />
-            <p className="o-text">@therapymove</p>
-          </div>
-        </div>
       </div>
     </div>
   );

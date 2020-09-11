@@ -1,7 +1,7 @@
 import React from "react";
 
-import "./AboutUs.css";
-// import ScriptTag from 'react-script-tag';
+import "./AboutUs.scss";
+
 import InstaEmbed from "./Instaembed/InstaEmbed";
 
 import MTFront from "../../Img/MTFront-AboutUs.png"
@@ -33,6 +33,12 @@ const AboutUs = () => {
       </div>
       <div className="o-aboutus-team">
         <h1 className="o-title-sentence">Nuestro Equipo</h1>
+        <h3 className="o-bottom-text-people">
+          Profesionales comprometidos con el bienestar físico y emocional de sus
+          usuarios, los cuales se encuentran constantemente actualizados y a la
+          vanguardia en nuevas técnicas de rehabilitación, dispuestos a
+          brindarle la mejor atención y calidad en el servicio.
+        </h3>
         <div className="o-aboutus-persons">
           <div className="o-aboutus-person">
             <img src={ProfileDiana} className="o-aboutus-person-img" alt="" />
@@ -72,12 +78,6 @@ const AboutUs = () => {
             <p>Escuela Nacional del Deporte</p>
           </div>
         </div>
-        <h3 className="o-bottom-text-people">
-          Profesionales comprometidos con el bienestar físico y emocional de sus
-          usuarios, los cuales se encuentran constantemente actualizados y a la
-          vanguardia en nuevas técnicas de rehabilitación, dispuestos a
-          brindarle la mejor atención y calidad en el servicio.
-        </h3>
       </div>
       <div className="o-aboutus-ig"> 
         <InstaEmbed/>

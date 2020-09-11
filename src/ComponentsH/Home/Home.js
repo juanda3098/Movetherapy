@@ -12,7 +12,7 @@ import Img9 from '../../Img/Page/img9.jpg'
 import Img10 from '../../Img/Page/img10.jpg'
 import Img11 from '../../Img/Page/img11.jpg'
 
-import "./Home.css";
+import "./Home.scss";
 
 function Home() {
   return (

@@ -1,3 +1,5 @@
+@import '../../variableStyles.scss';
+
 .o-aboutus-image-container {
     position: relative;
     height: 70vh;
@@ -16,11 +18,10 @@
 
 .o-aboutus-image-container .o-info{
     position: absolute;
-    background: #1f7a8c;
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(31,122,140,0.2) 15%, rgb(31,122,140,0.8) 50%, rgb(31,122,140,1) 81%,  rgba(31,122,140,1) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(31,122,140,0.2) 15%, rgba(31,122,140,0.8) 50%, rgba(31,122,140,1) 81%,  rgba(31,122,140,1) 100%);
     width: 100%;
     height: 100%;
-    color: #ffffff;
+    color: $white;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -50,6 +51,7 @@
 }
 
 .o-aboutus-team {
+    color: #000000;
     display: flex;
     justify-content: space-around;
     align-content: space-around;
@@ -70,7 +72,7 @@
     width: 25%;
     margin: 2rem;
     border-radius: 1rem;
-    color: #ffffff;
+    color: $white;
     background: #1f7a8c;
     font-size: 20px;
 }
