@@ -19,7 +19,7 @@ const Footer = () => {
           pariatur.
         </p>
       </div>
-      <div className="o-footer-contact" onClick="href">
+      <div className="o-footer-contact">
         <h2>Nuestras redes</h2>
         <div className='o-footer-net' style={{ marginBottom: "1vh" }}>
           <WALogo />

@@ -14,10 +14,10 @@ import ProfileEider from "../../Img/People/EiderArce.jpg"
 
 const AboutUs = () => {
   return (
-    <div class="o-aboutus-container">
-      <div class="o-aboutus-image-container">
+    <div className="o-aboutus-container">
+      <div className="o-aboutus-image-container">
         <img className="o-aboutus-image" src={MTFront} alt="" />
-        <div class="o-info">
+        <div className="o-info">
           <div className="o-aboutus-info-container">
           </div>
           <div className="o-aboutus-info-container">
