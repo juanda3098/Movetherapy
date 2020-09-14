@@ -116,3 +116,17 @@
 .o-container-title:hover {
     transform: translateY(0%);
 }
+
+@media  only screen and (max-width: 600px){
+    .o-title {
+        font-size: 18px;
+        height: 40vh;
+    }
+
+    .o-bg-img {
+        width: 80vw;
+        height: 40vh;
+    }
+    
+
+}

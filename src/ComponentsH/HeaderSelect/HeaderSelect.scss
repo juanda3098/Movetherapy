@@ -1,0 +1,18 @@
+@import '../../variableStyles.scss';
+
+
+.o-header-select-container{
+    margin-right: 2rem;
+    width:20px;
+    height: 20px;
+}
+.o-dropmenu-content {
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    right: 0vw;
+    top: 10vh;
+    width: 40%; /* Full width */
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+}
