@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../Img/LogoHeader.png";
 
+import HeaderSelect from "../HeaderSelect/HeaderSelect"
+
 import "./HeaderHomePage.scss";
 
 function HeaderHomePage() {
@@ -25,6 +27,9 @@ function HeaderHomePage() {
         <Link to="/Main/Login">
           <button className="o-header-button">Ingresar</button>
         </Link>
+      </div>
+      <div className="o-header-selector">
+        <HeaderSelect></HeaderSelect>
       </div>
     </div>
   );

@@ -47,18 +47,32 @@
 
 @media  only screen and (max-width: 600px){
     .o-image-container{
-        height: 30vh;
+        margin: 1rem 0rem;
+        height: 60vh;
+        max-height: 60vh;
+        flex-direction: column;
     } 
+
+    .o-image{
+        width: 50vw;
+        height: 50vw;
+        margin: 1rem 0rem 0rem 0rem;
+        order: -2;
+        border-radius: 25vw;
+    }
 
     .o-image-container .o-info{
         width: 100%;
     }
     
     .o-service-title{
+        margin: 0rem;
         font-size: 24px;
     }
 
     .o-service-description{
-        display: none;
+        width: 80%;
+        max-width: 80%;
+        font-size: 14px;
     }
 }

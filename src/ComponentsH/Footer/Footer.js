@@ -1,8 +1,7 @@
 import React from "react";
 
-import WALogo from "./WALogo";
-import InstaLogo from "./InstaLogo";
-
+import WALogo from "../../Img/WALogo";
+import InstaLogo from "../../Img/InstaLogo";
 import "./Footer.scss";
 
 const Footer = () => {
