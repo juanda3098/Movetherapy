@@ -11,8 +11,24 @@
     z-index: 1; /* Sit on top */
     right: 0vw;
     top: 10vh;
-    width: 40%; /* Full width */
+    width: 50%; /* Full width */
     background-color: white;
     text-align: center;
-    border-radius: 10px;
+    border-radius:  0px 0px 10px 10px;
 }
+
+.o-select-button{
+    background: none;
+    border: none;
+    fill:$blue;
+}
+
+.o-dropmenu-button{
+    margin: 1rem;
+    background: none;
+    border: none;
+    color: $blue;
+    font-weight: bolder;
+    font-size: 16px;
+}
+
