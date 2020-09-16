@@ -14,7 +14,7 @@ import CreateAccount from "../CreateAccount/CreateAccount"
 
 import "./Page.css";
 
-function Page() {
+const Page = (props) => {
   return (
     <BrowserRouter>
       <HeaderHomePage />
@@ -23,11 +23,12 @@ function Page() {
         <Route path="/Main/Services" exact component={ServiceTab} />
         <Route path="/Main/AboutUs" exact component={AboutUs} />
         <Route path="/Main/ContactUs" exact component={ContactUs} />
-        <Route path="/Main/Login" exact component={Login} />
+        <Route path="/Main/Login" exact component={() => <Login changeAdmin={props.changeAdmin} changeUser={props.changeUser}/>}/>
         <Route path="/Main/CreateAccount" exact component={CreateAccount} />
         {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
       </Switch>
       <Footer />
+      <button onClick={props.changePage}>change</button>
     </BrowserRouter>
   );
 }
