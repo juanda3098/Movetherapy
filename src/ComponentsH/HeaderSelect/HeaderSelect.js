@@ -3,15 +3,6 @@ import './HeaderSelect.scss'
 import { Link } from "react-router-dom";
 import Hmenu from "../../Img/Hmenu";
 
-/**
- * 
- * @param {*} stSource
- * @param {*} stTitle
- * @param {*} stDescription
- * stSource = string de la url de la imagen a mostrar
- * stTitle = string titulo del módulo
- * stDescription = Descripción del módulo
- */
 class HeaderSelect extends Component{
     
     constructor(props) {

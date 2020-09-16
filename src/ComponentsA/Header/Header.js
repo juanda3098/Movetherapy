@@ -4,7 +4,7 @@ import Logout from '../../Img/Admin/logout.svg';
 
 import './Header.scss'
 
-function Header() {
+function Header(props) {
 
     const [title] = useState("Panel de control");
     const [admin] = useState("Diana Mesa");
@@ -21,7 +21,7 @@ function Header() {
             <h2 className="o-title-headerA">{title}</h2>
             <div className="o-label-headerA">
                 <p>{admin}</p>
-                <img src={Logout} alt="" className="o-headerA-logout" />
+                <img src={Logout} alt="" className="o-headerA-logout" onClick={props.changeHome} />
             </div>
         </div>
     )
