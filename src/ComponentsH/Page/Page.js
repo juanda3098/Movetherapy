@@ -28,7 +28,6 @@ const Page = (props) => {
         {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
       </Switch>
       <Footer />
-      <button onClick={props.changePage}>change</button>
     </BrowserRouter>
   );
 }

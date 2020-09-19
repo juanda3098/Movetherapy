@@ -2,7 +2,7 @@
 
 .o-aboutus-image-container {
     position: relative;
-    height: 70vh;
+    height: 65vh;
     max-height: 65vh;
     display: flex;
     align-items: center;
@@ -35,8 +35,7 @@
 }
 
 .o-aboutus-title{
-    margin-top: 0rem;
-    margin-left: 2rem;
+    margin: 0rem 0rem 0rem 2rem;
     font-size: 56px;
     text-align: left;
 }
@@ -59,7 +58,7 @@
     flex-direction: column;
 }
 
-.o-aboutus-persons {
+.o-aboutus-people{
     width: 100%;
     height: 60%;
     display: flex;
@@ -88,4 +87,51 @@
 
 .o-aboutus-ig {
     margin: 1rem;
+}
+
+@media  only screen and (max-width: 600px){
+    .o-aboutus-image-container {
+        height: 40vh;
+    }
+
+    .o-aboutus-info-container{
+        min-width: 100%;
+        padding: none;
+        align-items: center;
+    }
+    
+    .o-aboutus-title{
+        margin: 0rem 0rem 0rem 0rem;
+        font-size: 24px;
+    }
+
+    .o-aboutus-description{
+        margin: 0rem;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .o-disapear{
+        display: none;
+    }
+
+    .o-title-sentence{
+        margin: 1rem 0rem;
+        font-size: 24px;
+    }
+
+    .o-bottom-text-people{
+        margin: 0rem 2rem;
+        font-size: 16px;
+    }
+
+    .o-aboutus-person{
+        margin: 1rem 0rem;
+        width: 45%;
+        font-size: 14px;
+    }
+
+    .o-aboutus-person h1 h2 p{
+        margin: 0.6rem;
+    }
 }
