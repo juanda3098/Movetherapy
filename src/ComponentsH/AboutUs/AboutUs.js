@@ -48,7 +48,7 @@ const AboutUs = () => {
           </div>
           <div className="o-aboutus-person">
             <img src={ProfileLauraG} className="o-aboutus-person-img" alt="" ></img>
-            <h2>Laura Gonzáles</h2>
+            <h2>Laura González</h2>
             <h4>Fisioterapeuta</h4>
             <p>Escuela Nacional del Deporte</p>
           </div>

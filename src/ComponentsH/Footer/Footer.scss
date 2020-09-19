@@ -2,16 +2,16 @@
 
 .o-container-footer {
     margin: 0px;
-    height: 25vh;
+    height: 20vh;
     background: $blue;
     color: $white;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .o-footer-info {
-    margin-right: 5vw;
+    margin: 2rem 5vw 0rem 2rem;
     width: 50vw;
     display: flex;
     flex-direction: column;
@@ -29,6 +29,7 @@
 }
 
 .o-footer-contact{
+    margin: 2rem 0rem;
     color: $white;
     display: flex;
     flex-direction: column;
@@ -65,4 +66,36 @@
 
 ::placeholder {
     color: rgba(255, 255, 255, 0.637);
+}
+
+@media  only screen and (max-width: 600px){
+
+    .o-container-footer {
+        height: auto;
+    }
+
+    .o-logo{
+        width: 6vw;
+        height: 6vw;
+    }
+
+    .o-footer-contact{
+        margin-right: 1rem;
+    }
+
+    .o-footer-contact .o-text{
+        font-size: 16px;
+    }
+
+    .o-footer-contact h2 {
+        font-size: 20px;
+    }
+
+    .o-footer-info{
+        margin-left: 1rem;
+    }
+
+    .o-footer-info h2 {
+        font-size: 20px;
+    }
 }
