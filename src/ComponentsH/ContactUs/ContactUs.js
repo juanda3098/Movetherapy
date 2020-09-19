@@ -38,6 +38,7 @@ const ContactUs = () => {
           style={{ border: 0 }}
           src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDk4oy52Yq3t_cQwGCVSnxF6KyK7HNSVRw&q=Move+Therapy,Cali+Valle"
           allowfullscreen
+          className="o-map-container"
         />
       </div>
     </div>

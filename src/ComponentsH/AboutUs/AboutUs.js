@@ -18,7 +18,7 @@ const AboutUs = () => {
       <div class="o-aboutus-image-container">
         <img className="o-aboutus-image" src={MTFront} alt="" />
         <div class="o-info">
-          <div className="o-aboutus-info-container">
+          <div className="o-aboutus-info-container o-disapear">
           </div>
           <div className="o-aboutus-info-container">
             <h1 className="o-aboutus-title">Quiénes Somos</h1>
@@ -39,7 +39,7 @@ const AboutUs = () => {
           vanguardia en nuevas técnicas de rehabilitación, dispuestos a
           brindarle la mejor atención y calidad en el servicio.
         </h3>
-        <div className="o-aboutus-persons">
+        <div className="o-aboutus-people">
           <div className="o-aboutus-person">
             <img src={ProfileDiana} className="o-aboutus-person-img" alt="" />
             <h2>Diana Mesa</h2>
@@ -56,8 +56,7 @@ const AboutUs = () => {
             <img src={ProfileCamilo} className="o-aboutus-person-img" alt="" ></img>
             <h2>Camilo Useche</h2>
             <h4>Servicio Al Cliente</h4>
-            <p>Estudiante de Derecho</p>
-            <p>Universidad Santiago de Cali</p>
+            <p>Estudiante de Derecho, Universidad Santiago de Cali</p>
           </div>
           <div className="o-aboutus-person">
             <img src={ProfileAndres} className="o-aboutus-person-img" alt="" ></img>
