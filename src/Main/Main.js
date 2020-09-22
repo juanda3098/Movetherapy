@@ -1,18 +1,17 @@
-
-import React, {Component} from 'react'
+import React, { Component } from "react";
 
 import Page from "../ComponentsH/Page/Page";
-import Admin from '../ComponentsA/Admin/Admin';
+import Admin from "../ComponentsA/Admin/Admin";
 import UserPage from "../ComponentsU/UserMain/UserMain";
 
 import "./Main.css";
-import Home from '../ComponentsH/Home/Home';
+import Home from "../ComponentsH/Home/Home";
 
-class Main extends Component{
+class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      renderPage: "home"
+      renderPage: "home",
     };
     this.changeToAdmin = this.changeToAdmin.bind(this);
     this.changeToUser = this.changeToUser.bind(this);
@@ -20,40 +19,41 @@ class Main extends Component{
   }
 
   changeToAdmin = () => {
-    this.setState({renderPage:"admin"});
-  }
+    this.setState({ renderPage: "admin" });
+  };
 
   changeToUser = () => {
-    this.setState({renderPage:"user"});
-  }
+    this.setState({ renderPage: "user" });
+  };
 
   changeToHome = () => {
-    this.setState({renderPage:"home"});
-  }
+    this.setState({ renderPage: "home" });
+  };
 
   render() {
-    if(this.state.renderPage=="home"){
-      return(
+    if (this.state.renderPage === "home") {
+      return (
         <div>
-          <Page changeAdmin={this.changeToAdmin} changeUser={this.changeToUser}/>
+          <Page
+            changeAdmin={this.changeToAdmin}
+            changeUser={this.changeToUser}
+          />
         </div>
-      )
-    }
-    else if(this.state.renderPage=="admin"){
-      return(
+      );
+    } else if (this.state.renderPage === "admin") {
+      return (
         <div>
-          <Admin changeHome={this.changeToHome}/>
+          <Admin changeHome={this.changeToHome} />
         </div>
-      )
-    }
-    else if(this.state.renderPage=="user"){
-      return(
+      );
+    } else if (this.state.renderPage === "user") {
+      return (
         <div>
-          <UserPage changeHome={this.changeToHome}/>
+          <UserPage changeHome={this.changeToHome} />
         </div>
-      )
+      );
     }
   }
-};
+}
 
 export default Main;
