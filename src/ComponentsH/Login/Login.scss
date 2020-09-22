@@ -22,22 +22,39 @@
 
 .o-button-container{
     width: 100%;
+    min-width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.o-button{
+    margin: 5vh 0vw;
+    background-color: transparent;
+    border: 2px solid $white;
+    border-radius: 10px;
+    color: $white;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    justify-self: flex-start;
 }
 
 .o-create-account-button{
-    margin: 5vh 0vw;
-    background-color: transparent;  /* Green */
+    margin: 5vh 5vw;
+    background-color: transparent;  
     border: none;
     color: $white;
     padding: 0px 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 18px;
     transition-duration: 0.4s;
     cursor: pointer;
+    justify-self: fle;
 }
 
 .o-create-account-button:hover{
@@ -47,4 +64,18 @@
 .o-login-image{
     height: 100%;
     width: 60%;
+}
+
+@media  only screen and (max-width: 600px){
+    .o-login-container{
+        justify-content: center;
+    }
+
+    .o-login-info-container{
+        width: 80%;
+    }
+
+    .o-login-image{
+        display: none;
+    }
 }

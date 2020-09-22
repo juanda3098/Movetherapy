@@ -34,3 +34,26 @@
     margin-left: 5vw;
     width: 20vw;
 }
+
+.o-header-selector{
+    display: none;
+}
+
+@media  only screen and (max-width: 600px){
+    .o-header-container{
+        height: 10vh;
+    }
+
+    .o-header-buttons-container{
+        display: none;
+    }
+
+    .o-header-selector{
+        display: block;
+    }
+
+    .o-header-logo {
+        margin: 1rem 5vw;
+        width: 50vw;
+    }
+}

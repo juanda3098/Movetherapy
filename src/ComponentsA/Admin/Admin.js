@@ -15,7 +15,7 @@ import Profiles from "../Profiles/Profiles";
 
 import "./Admin.scss";
 
-function Admin() {
+function Admin(props) {
   return (
     <BrowserRouter>
       <div className="o-admin-container">
@@ -23,7 +23,7 @@ function Admin() {
           <Menu />
         </div>
         <div className="o-admin-field">
-          <Header />
+          <Header changeHome={props.changeHome}/>
           <div className="o-admin-body">
             <Switch>
               <Route path="/Admin" exact component={Welcome} />
