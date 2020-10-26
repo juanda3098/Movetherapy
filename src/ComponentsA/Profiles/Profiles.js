@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
+import creds from "../../variables";
 
 import Profile from "../Profile/Profile";
 
@@ -7,6 +9,96 @@ import Add from "../../Img/Admin/add.svg";
 import "./Profiles.scss";
 
 function Profiles() {
+    const [listProfiles, setListProfiles] = useState([]);
+    const [isSelected, setIsSelected] = useState(false);
+    const [actionProfile, setActionProfile] = useState({
+      cedulaPaciente: "",
+      nombre1Paciente: "",
+      apellido1Paciente: "",
+      celularPaciente: "",
+      fechaNacimientoPaciente: "",
+      correoPaciente: "",
+      contrasenaPaciente: "",
+      practicaDeporte: "",
+      idPaciente: "",
+    });
+
+    useEffect(() => {
+      axios.get(`${creds.url}/paciente/lista`).then((res) => {
+        setListProfiles(res.data);
+        console.log();
+      });
+    }, []);
+
+    let createProfile = (event) => {
+      event.preventDefault();
+
+      axios
+        .post(`${creds.url}/paciente/registro`, {
+          actionProfile,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+
+    let deleteProfile = (event) => {
+      event.preventDefault();
+
+      axios
+        .delete(`${creds.url}/paciente/cedula/${actionProfile.cedulaPaciente}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+
+    let updateProfile = (event) => {
+      event.preventDefault();
+
+      axios
+        .post(`${creds.url}/paciente/editar`, {
+          actionProfile,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+
+    let handleField = (event) => {
+      setActionProfile({
+        ...actionProfile,
+        [event.target.name]: event.target.value,
+      });
+    };
+
+    let outputEvent = (param) => {
+      setActionProfile(param);
+      setIsSelected(true);
+    };
+
+    function clearForm() {
+      setActionProfile({
+        cedulaPaciente: "",
+        nombre1Paciente: "",
+        apellido1Paciente: "",
+        celularPaciente: "",
+        fechaNacimientoPaciente: "",
+        correoPaciente: "",
+        contrasenaPaciente: "",
+        practicaDeporte: "",
+        idPaciente: "",
+      });
+      setIsSelected(false);
+    }
   return (
     <div className="o-profiles-container">
       <div className="o-profiles-content">

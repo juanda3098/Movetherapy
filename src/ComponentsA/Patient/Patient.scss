@@ -3,12 +3,17 @@
 .o-patient-detail {
     background: $grey;
     margin: 0.8vw 0vw 0.3vw 0vw;
-    padding: 0vw 1.5vw;
+    padding: 0.5vh 1.5vw;
     display: flex;
     justify-content: space-between;
     border-radius: 1vh;
     text-align: start;
-    // box-shadow: 1px 1px 5px $black;
+    box-shadow: 3px 3px 5px $gray;
+    border: none;
+}
+
+.o-patient-detail:hover {
+    cursor: pointer;
 }
 
 .o-patient-detail p {

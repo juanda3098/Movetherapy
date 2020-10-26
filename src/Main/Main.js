@@ -5,7 +5,7 @@ import Admin from "../ComponentsA/Admin/Admin";
 import UserPage from "../ComponentsU/UserMain/UserMain";
 
 import "./Main.css";
-import Home from "../ComponentsH/Home/Home";
+// import Home from "../ComponentsH/Home/Home";
 
 class Main extends Component {
   constructor(props) {
@@ -31,28 +31,28 @@ class Main extends Component {
   };
 
   render() {
-    if (this.state.renderPage === "home") {
-      return (
-        <div>
-          <Page
-            changeAdmin={this.changeToAdmin}
-            changeUser={this.changeToUser}
-          />
-        </div>
-      );
-    } else if (this.state.renderPage === "admin") {
+    // if (this.state.renderPage === "home") {
+    //   return (
+    //     <div>
+    //       <Page
+    //         changeAdmin={this.changeToAdmin}
+    //         changeUser={this.changeToUser}
+    //       />
+    //     </div>
+    //   );
+    // } else if (this.state.renderPage === "admin") {
       return (
         <div>
           <Admin changeHome={this.changeToHome} />
         </div>
+  //     );
+  //   } else if (this.state.renderPage === "user") {
+  //     return (
+  //       <div>
+  //         <UserPage changeHome={this.changeToHome} />
+  //       </div>
       );
-    } else if (this.state.renderPage === "user") {
-      return (
-        <div>
-          <UserPage changeHome={this.changeToHome} />
-        </div>
-      );
-    }
+    // }
   }
 }
 
