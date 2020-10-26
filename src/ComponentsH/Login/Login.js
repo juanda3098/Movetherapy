@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Login.scss";
 import MTfront from "./../../Img/MoveTherapyFront.png";
-import { Link } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -54,13 +53,8 @@ class Login extends Component {
             ></input>
             <div className="o-button-container">
               <button className="o-button" onClick={this.login}>
-                Enviar
+                Ingresar
               </button>
-              <Link to="/Main/CreateAccount">
-                <button className="o-create-account-button">
-                  Crear Cuenta
-                </button>
-              </Link>
             </div>
           </div>
           <img className="o-login-image" src={MTfront} alt=""></img>

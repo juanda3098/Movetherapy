@@ -72,6 +72,10 @@
     box-shadow: 1px 1px 5px $black;
 }
 
+.o-add-patient:hover {
+    cursor: pointer;
+}
+
 .o-patient-info {
     background: $white;
     margin-left: 1vw;
@@ -117,11 +121,22 @@
 }
 
 .o-button-action {
-    background: $green;
     color: $white;
     width: 8vw;
     padding: 1vh 1vw;
     border: none;
     border-radius: 1vw;
     box-shadow: 1px 1px 5px $black;
+}
+
+.o-create {
+    background: $green;
+}
+
+.o-edit {
+    background: $yellow;
+}
+
+.o-delete {
+    background: $red;
 }
