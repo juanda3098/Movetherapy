@@ -1,0 +1,45 @@
+@import '../variableStyles.scss';
+
+.o-admin-container {
+    background: $grey;
+    display: flex;
+    justify-content: space-between;
+}
+
+.o-admin-menu {
+    width: 8vw;
+    height: 100vh;
+}
+
+.o-admin-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $grey;
+    width: 91vw;
+    height: 100vh;
+}
+
+.o-admin-body {
+    background: $white;
+    width: 100%;
+    height: 90vh;
+}
+
+.o-body-welcome {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $blue;
+}
+
+.o-img-welcome {
+    width: 60vw;
+}
+
+.o-title-welcome {
+    margin: 0vw;
+}
