@@ -1,22 +1,26 @@
 import React from "react";
 
-import Img1 from '../../Img/Page/img1.jpg'
-import Img2 from '../../Img/Page/img2.jpg'
-import Img3 from '../../Img/Page/img3.jpg'
-import Img4 from '../../Img/Page/img4.jpg'
-import Img5 from '../../Img/Page/img5.jpg'
-import Img6 from '../../Img/Page/img6.jpg'
-import Img7 from '../../Img/Page/img7.jpg'
-import Img8 from '../../Img/Page/img8.jpg'
-import Img9 from '../../Img/Page/img9.jpg'
-import Img10 from '../../Img/Page/img10.jpg'
-import Img11 from '../../Img/Page/img11.jpg'
+import HeaderHomePage from "../HeaderHomePage/HeaderHomePage";
+import Footer from "../Footer/Footer";
+
+import Img1 from "../../Img/Page/img1.jpg";
+import Img2 from "../../Img/Page/img2.jpg";
+import Img3 from "../../Img/Page/img3.jpg";
+import Img4 from "../../Img/Page/img4.jpg";
+import Img5 from "../../Img/Page/img5.jpg";
+import Img6 from "../../Img/Page/img6.jpg";
+import Img7 from "../../Img/Page/img7.jpg";
+import Img8 from "../../Img/Page/img8.jpg";
+import Img9 from "../../Img/Page/img9.jpg";
+import Img10 from "../../Img/Page/img10.jpg";
+import Img11 from "../../Img/Page/img11.jpg";
 
 import "./Home.scss";
 
 function Home() {
   return (
     <div>
+      <HeaderHomePage />
       <div className="o-container-home">
         <div className="o-container-img">
           <img src={Img1} className="o-bg-img" alt="" />
@@ -92,6 +96,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

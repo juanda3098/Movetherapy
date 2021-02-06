@@ -1,37 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
+
+import HeaderHomePage from "../HeaderHomePage/HeaderHomePage";
+import Footer from "../Footer/Footer";
+
 import "./Login.scss";
+
 import MTfront from "./../../Img/MoveTherapyFront.png";
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: "",
-    };
-  }
+function Login() {
+  // usernameChange = (event) => {
+  //   this.setState({ username: event.target.value });
+  // };
 
-  usernameChange = (event) => {
-    this.setState({ username: event.target.value });
-  };
+  // passwordChange = (event) => {
+  //   this.setState({ password: event.target.value });
+  // };
 
-  passwordChange = (event) => {
-    this.setState({ password: event.target.value });
-  };
+  // login = () => {
+  //   if (this.state.username === "Admin" && this.state.password === "Admin1") {
+  //     this.props.changeAdmin();
+  //   } else if (
+  //     this.state.username === "User" &&
+  //     this.state.password === "User1"
+  //   ) {
+  //     this.props.changeUser();
+  //   }
+  // };
 
-  login = () => {
-    if (this.state.username === "Admin" && this.state.password === "Admin1") {
-      this.props.changeAdmin();
-    } else if (
-      this.state.username === "User" &&
-      this.state.password === "User1"
-    ) {
-      this.props.changeUser();
-    }
-  };
-
-  render() {
-    return (
+  return (
+    <div>
+      <HeaderHomePage />
       <div className="o-contactus-tab-container">
         <div className="o-login-container">
           <div className="o-login-info-container">
@@ -40,19 +38,17 @@ class Login extends Component {
             <input
               className="o-input"
               placeholder="Escribe tu correo electrónico"
-              value={this.state.username}
-              onChange={this.usernameChange}
+              // onChange={this.usernameChange}
             ></input>
             <p>Contraseña</p>
             <input
               className="o-input"
               type="password"
               placeholder="Escribe tu contraseña"
-              value={this.state.password}
-              onChange={this.passwordChange}
+              // onChange={this.passwordChange}
             ></input>
             <div className="o-button-container">
-              <button className="o-button" onClick={this.login}>
+              <button className="o-button">
                 Ingresar
               </button>
             </div>
@@ -60,8 +56,9 @@ class Login extends Component {
           <img className="o-login-image" src={MTfront} alt=""></img>
         </div>
       </div>
-    );
-  }
+      <Footer />
+    </div>
+  );
 }
 
 export default Login;

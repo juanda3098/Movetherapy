@@ -1,59 +1,55 @@
-import React, { Component } from "react";
+import React from "react";
 
-import Page from "../ComponentsH/Page/Page";
-import Admin from "../ComponentsA/Admin/Admin";
-import UserPage from "../ComponentsU/UserMain/UserMain";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import "./Main.css";
-// import Home from "../ComponentsH/Home/Home";
+import Home from "../ComponentsH/Home/Home";
+import ServiceTab from "../ComponentsH/ServicesTab/ServicesTab";
+import AboutUs from "../ComponentsH/AboutUs/AboutUs";
+import ContactUs from "../ComponentsH/ContactUs/ContactUs";
+import Login from "../ComponentsH/Login/Login";
+import CreateAccount from "../ComponentsH/CreateAccount/CreateAccount";
 
-class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      renderPage: "home",
-    };
-    this.changeToAdmin = this.changeToAdmin.bind(this);
-    this.changeToUser = this.changeToUser.bind(this);
-    this.changeToHome = this.changeToHome.bind(this);
-  }
+import HeaderUserPage from "../ComponentsU/HeaderUserPage/HeaderUserPage";
 
-  changeToAdmin = () => {
-    this.setState({ renderPage: "admin" });
-  };
+import Welcome from "../ComponentsA/Welcome/Welcome";
+import Patients from "../ComponentsA/Patients/Patients";
+import Appointment from "../ComponentsA/Appointment/Appointment";
+import Routines from "../ComponentsA/Routines/Routines";
+import Exercises from "../ComponentsA/Exercises/Exercises";
+import Profiles from "../ComponentsA/Profiles/Profiles";
 
-  changeToUser = () => {
-    this.setState({ renderPage: "user" });
-  };
+import "./Main.scss";
 
-  changeToHome = () => {
-    this.setState({ renderPage: "home" });
-  };
-
-  render() {
-    // if (this.state.renderPage === "home") {
-    //   return (
-    //     <div>
-    //       <Page
-    //         changeAdmin={this.changeToAdmin}
-    //         changeUser={this.changeToUser}
-    //       />
-    //     </div>
-    //   );
-    // } else if (this.state.renderPage === "admin") {
-      return (
-        <div>
-          <Admin changeHome={this.changeToHome} />
-        </div>
-  //     );
-  //   } else if (this.state.renderPage === "user") {
-  //     return (
-  //       <div>
-  //         <UserPage changeHome={this.changeToHome} />
-  //       </div>
-      );
-    // }
-  }
+function Main() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/Main/Services" exact component={ServiceTab} />
+        <Route path="/Main/AboutUs" exact component={AboutUs} />
+        <Route path="/Main/ContactUs" exact component={ContactUs} />
+        <Route path="/Main/Login" exact component={Login} />
+        <Route path="/Main/CreateAccount" exact component={CreateAccount} />
+        {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
+      <HeaderUserPage />
+      {/*<Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/Main/Services" exact component={ServiceTab} />
+        <Route path="/Main/AboutUs" exact component={AboutUs} />
+        <Route path="/Main/ContactUs" exact component={ContactUs} />
+        <Route path="/Main/Login" exact component={Login} />
+        <Route path="/Main/CreateAccount" exact component={CreateAccount} />
+        {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> 
+      </Switch>*/}
+        <Route path="/Admin" exact component={Welcome} />
+        <Route path="/Admin/Patient" exact component={Patients} />
+        <Route path="/Admin/Appointment" exact component={Appointment} />
+        <Route path="/Admin/Routine" exact component={Routines} />
+        <Route path="/Admin/Exercise" exact component={Exercises} />
+        <Route path="/Admin/Profile" exact component={Profiles} />
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default Main;
