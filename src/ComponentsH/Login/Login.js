@@ -40,7 +40,6 @@ class Login extends Component {
             <input
               className="o-input"
               placeholder="Escribe tu correo electrónico"
-              value={this.state.username}
               onChange={this.usernameChange}
             ></input>
             <p>Contraseña</p>

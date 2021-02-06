@@ -20,7 +20,7 @@ function Patients() {
     correoPaciente: "",
     contrasenaPaciente: "",
     practicaDeporte: "",
-    idPaciente: ""
+    idPaciente: "",
   });
 
   useEffect(() => {
@@ -43,6 +43,8 @@ function Patients() {
       .catch(function (error) {
         console.log(error);
       });
+
+    window.location.reload(true);
   };
 
   let deletePatient = (event) => {
@@ -56,6 +58,8 @@ function Patients() {
       .catch(function (error) {
         console.log(error);
       });
+
+    window.location.reload(true);
   };
 
   let updatePatient = (event) => {
@@ -71,6 +75,8 @@ function Patients() {
       .catch(function (error) {
         console.log(error);
       });
+
+    window.location.reload(true);
   };
 
   let handleField = (event) => {
