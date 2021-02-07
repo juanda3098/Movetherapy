@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { useHistory } from "react-router-dom";
 
 import HeaderHomePage from "../HeaderHomePage/HeaderHomePage";
 import Footer from "../Footer/Footer";
@@ -8,24 +10,28 @@ import "./Login.scss";
 import MTfront from "./../../Img/MoveTherapyFront.png";
 
 function Login() {
-  // usernameChange = (event) => {
-  //   this.setState({ username: event.target.value });
-  // };
+  const [userInput, setUserInput] = useState();
+  const [passwordInput, setPasswordInput] = useState();
 
-  // passwordChange = (event) => {
-  //   this.setState({ password: event.target.value });
-  // };
+  let history = useHistory();
 
-  // login = () => {
-  //   if (this.state.username === "Admin" && this.state.password === "Admin1") {
-  //     this.props.changeAdmin();
-  //   } else if (
-  //     this.state.username === "User" &&
-  //     this.state.password === "User1"
-  //   ) {
-  //     this.props.changeUser();
-  //   }
-  // };
+  let usernameChange = (event) => {
+    setUserInput(event.target.value);
+  };
+
+  let passwordChange = (event) => {
+    setPasswordInput(event.target.value);
+  };
+
+  let login = () => {
+    if (userInput === "Admin" && passwordInput === "Admin1") {
+      alert("admin");
+      history.push("/Admin");
+    } else if (userInput === "User" && passwordInput === "User1") {
+      alert("user");
+      history.push("/User");
+    }
+  };
 
   return (
     <div>
@@ -38,17 +44,17 @@ function Login() {
             <input
               className="o-input"
               placeholder="Escribe tu correo electrónico"
-              // onChange={this.usernameChange}
+              onChange={usernameChange}
             ></input>
             <p>Contraseña</p>
             <input
               className="o-input"
               type="password"
               placeholder="Escribe tu contraseña"
-              // onChange={this.passwordChange}
+              onChange={passwordChange}
             ></input>
             <div className="o-button-container">
-              <button className="o-button">
+              <button className="o-button" onClick={login}>
                 Ingresar
               </button>
             </div>

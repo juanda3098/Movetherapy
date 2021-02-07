@@ -31,16 +31,14 @@ function Main() {
         <Route path="/Main/Login" exact component={Login} />
         <Route path="/Main/CreateAccount" exact component={CreateAccount} />
         {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
-      <HeaderUserPage />
-      {/*<Switch>
-        <Route path="/" exact component={Home} />
+        {/* <HeaderUserPage /> */}
+        {/*<Route path="/" exact component={Home} />
         <Route path="/Main/Services" exact component={ServiceTab} />
         <Route path="/Main/AboutUs" exact component={AboutUs} />
         <Route path="/Main/ContactUs" exact component={ContactUs} />
         <Route path="/Main/Login" exact component={Login} />
         <Route path="/Main/CreateAccount" exact component={CreateAccount} />
-        {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> 
-      </Switch>*/}
+        {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
         <Route path="/Admin" exact component={Welcome} />
         <Route path="/Admin/Patient" exact component={Patients} />
         <Route path="/Admin/Appointment" exact component={Appointment} />
