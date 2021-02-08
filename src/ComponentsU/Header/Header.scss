@@ -1,0 +1,39 @@
+@import '../../variableStyles.scss';
+
+.o-header-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 2rem;
+    background: $blue;
+    color: $white;
+    height: 5rem;
+}
+
+.o-header-user-link {
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.o-header-detail-link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.o-link {
+    color: $white;
+    text-decoration: none;
+}
+
+.o-header-icon {
+    margin-right: 3rem;
+    width: 3.5rem;
+}
+
+.o-exit-icon {
+    margin-left: 2rem;
+    width: 1.5rem;
+}
