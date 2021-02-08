@@ -9,9 +9,9 @@ import ContactUs from "../ComponentsH/ContactUs/ContactUs";
 import Login from "../ComponentsH/Login/Login";
 import CreateAccount from "../ComponentsH/CreateAccount/CreateAccount";
 
-import HeaderUserPage from "../ComponentsU/HeaderUserPage/HeaderUserPage";
+import WelcomeU from '../ComponentsU/Welcome/Welcome';
 
-import Welcome from "../ComponentsA/Welcome/Welcome";
+import WelcomeA from "../ComponentsA/Welcome/Welcome";
 import Patients from "../ComponentsA/Patients/Patients";
 import Appointment from "../ComponentsA/Appointment/Appointment";
 import Routines from "../ComponentsA/Routines/Routines";
@@ -31,15 +31,10 @@ function Main() {
         <Route path="/Main/Login" exact component={Login} />
         <Route path="/Main/CreateAccount" exact component={CreateAccount} />
         {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
-        {/* <HeaderUserPage /> */}
-        {/*<Route path="/" exact component={Home} />
-        <Route path="/Main/Services" exact component={ServiceTab} />
-        <Route path="/Main/AboutUs" exact component={AboutUs} />
-        <Route path="/Main/ContactUs" exact component={ContactUs} />
-        <Route path="/Main/Login" exact component={Login} />
-        <Route path="/Main/CreateAccount" exact component={CreateAccount} />
-        {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
-        <Route path="/Admin" exact component={Welcome} />
+
+        <Route path="/User" exact component={WelcomeU} />
+
+        <Route path="/Admin" exact component={WelcomeA} />
         <Route path="/Admin/Patient" exact component={Patients} />
         <Route path="/Admin/Appointment" exact component={Appointment} />
         <Route path="/Admin/Routine" exact component={Routines} />
