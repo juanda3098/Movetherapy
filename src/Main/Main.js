@@ -11,7 +11,7 @@ import CreateAccount from "../ComponentsH/CreateAccount/CreateAccount";
 
 import WelcomeU from '../ComponentsU/Welcome/Welcome';
 import AppointmentU from '../ComponentsU/Appointment/Appointment';
-import RoutineU from "../ComponentsU/Routine/Routine";
+import RoutineU from "../ComponentsU/Routines/Routines";
 
 import WelcomeA from "../ComponentsA/Welcome/Welcome";
 import Patients from "../ComponentsA/Patients/Patients";
