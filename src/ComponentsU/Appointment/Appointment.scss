@@ -1,0 +1,22 @@
+@import '../../variableStyles.scss';
+
+.o-appointment-user-container {
+    display: flex;
+    justify-content: space-between;
+    color: $blue;
+    background: $grey;
+    width: 100vw;
+    height: 90vh;
+}
+
+.o-appointment-user-calendar {
+    padding: 2vw;
+    width: 67vw;
+    background: $white;
+}
+
+.o-appointment-user-record {
+    padding: 2vw;
+    width: 24vw;
+    background: $white;
+}
