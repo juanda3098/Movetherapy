@@ -11,19 +11,19 @@ function Header() {
   return (
     <div className="o-header-user">
       <div className="o-header-user-link">
-        <Link to="/User" className="o-link">
+        <Link to="/user" className="o-link">
           <img src={Logo} alt="" className="o-header-icon" />
         </Link>
-        <Link to="/User/Citas" className="o-link">
+        <Link to="/user/appointment" className="o-link">
           <h4>Mis citas</h4>
         </Link>
-        <Link to="/User/Rutinas" className="o-link">
+        <Link to="/user/routine" className="o-link">
           <h4>Mis rutinas</h4>
         </Link>
       </div>
       <div className="o-header-detail-link">
         <h4>Juan David Posso Rengifo</h4>
-        <Link to="/User/Rutinas">
+        <Link to="/">
           <img src={Exit} alt="" className="o-exit-icon" />
         </Link>
       </div>
