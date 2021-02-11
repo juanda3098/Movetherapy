@@ -1,0 +1,36 @@
+@import '../../variableStyles.scss';
+
+.o-routines-user-container {
+    color: $blue;
+    background: $grey;
+    display: flex;
+    justify-content: space-between;
+    height: 90vh;
+}
+
+.o-routines-user-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2vw;
+    width: 17vw;
+    background: $white;
+}
+
+.o-routines-exercises-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2vw;
+    width: 24vw;
+    background: $white;
+}
+
+.o-routines-exercises-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2vw;
+    width: 45vw;
+    background: $white;
+}
