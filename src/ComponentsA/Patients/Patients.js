@@ -140,7 +140,7 @@ function Patients() {
                   })}
                 </div>
                 <div className="o-add-container">
-                  <img
+                  <img 
                     src={Add}
                     alt=""
                     className="o-add-patient"

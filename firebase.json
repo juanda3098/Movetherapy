@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "pruebadev",
     "public": "build",
     "ignore": [
       "firebase.json",
