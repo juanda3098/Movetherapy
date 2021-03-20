@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import LoginContext from "../../Context/LoginContext";
 
 import Menu from "../Menu/Menu";
 import Header from "../Header/Header";
@@ -8,8 +9,9 @@ import Logo from "../../Img/Admin/Logo2.png";
 import "./Welcome.scss";
 
 function Welcome() {
-  //   const [admin, setaAdmin] = useState("Diana Mesa");
-  const [admin] = useState("Diana Mesa");
+  const { user } = useContext(LoginContext);
+  console.log(user);
+
   return (
     <div className="o-admin-container">
       <div className="o-admin-menu">
@@ -22,7 +24,7 @@ function Welcome() {
             <img src={Logo} alt="" className="o-img-welcome" />
             <h1 className="o-title-welcome">Bienvenido al panel</h1>
             <h1 className="o-title-welcome">administrativo</h1>
-            <p>{admin}</p>
+            <p style={{ textTransform: 'capitalize'}}>{user.usuarioAdmin}</p>
           </div>
         </div>
       </div>

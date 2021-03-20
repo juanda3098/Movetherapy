@@ -1,30 +1,33 @@
-import React , { useState } from 'react'
+import React, { useState, useContext } from "react";
+import LoginContext from "../../Context/LoginContext";
 
-import Logout from '../../Img/Admin/logout.svg';
+import { useHistory } from "react-router-dom";
 
-import './Header.scss'
+import Logout from "../../Img/Admin/logout.svg";
+
+import "./Header.scss";
 
 function Header(props) {
+  const history = useHistory();
 
-    const [title] = useState("Panel de control");
-    const [admin] = useState("Diana Mesa");
-    // const [title, setTitle] = useState("Panel de control");
-    // const [admin, setaAmin] = useState("Diana Mesa");
+  const [title] = useState("Panel de control");
 
-    // const outputEvents = () => {
-    //     setTitle();
-    //     setaAmin();
-    // }
+  const { user, logout } = useContext(LoginContext);
 
-    return(
-        <div className="o-headerA-container">
-            <h2 className="o-title-headerA">{title}</h2>
-            <div className="o-label-headerA">
-                <p>{admin}</p>
-                <img src={Logout} alt="" className="o-headerA-logout" onClick={props.changeHome} />
-            </div>
-        </div>
-    )
+  return (
+    <div className="o-headerA-container">
+      <h2 className="o-title-headerA">{title}</h2>
+      <div className="o-label-headerA">
+        <p style={{ textTransform: "capitalize" }}>{user.usuarioAdmin}</p>
+        <img
+          src={Logout}
+          alt=""
+          className="o-headerA-logout"
+          onClick={() => logout(history)}
+        />
+      </div>
+    </div>
+  );
 }
 
 export default Header;
