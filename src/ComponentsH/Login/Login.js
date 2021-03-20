@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import LoginContext from "../../Context/LoginContext";
 
 import { useHistory } from "react-router-dom";
 
@@ -10,27 +11,26 @@ import "./Login.scss";
 import MTfront from "./../../Img/MoveTherapyFront.png";
 
 function Login() {
+  const history = useHistory();
+
   const [userInput, setUserInput] = useState();
   const [passwordInput, setPasswordInput] = useState();
 
-  let history = useHistory();
-
-  let usernameChange = (event) => {
+  const usernameChange = (event) => {
     setUserInput(event.target.value);
   };
 
-  let passwordChange = (event) => {
+  const passwordChange = (event) => {
     setPasswordInput(event.target.value);
   };
 
-  let login = () => {
-    if (userInput === "Admin" && passwordInput === "Admin1") {
-      alert("admin");
-      history.push("/Admin");
-    } else if (userInput === "User" && passwordInput === "User1") {
-      alert("user");
-      history.push("/User");
-    }
+  const { login } = useContext(LoginContext);
+
+  const isLogin = (e) => {
+    e.preventDefault();
+
+    login(userInput, passwordInput, history);
+
   };
 
   return (
@@ -38,7 +38,7 @@ function Login() {
       <HeaderHomePage />
       <div className="o-contactus-tab-container">
         <div className="o-login-container">
-          <div className="o-login-info-container">
+          <form onSubmit={(e) => isLogin(e)} className="o-login-info-container">
             <h1>Ingresar</h1>
             <p>Corre Electrónico</p>
             <input
@@ -54,11 +54,11 @@ function Login() {
               onChange={passwordChange}
             ></input>
             <div className="o-button-container">
-              <button className="o-button" onClick={login}>
+              <button className="o-button" type="submit">
                 Ingresar
               </button>
             </div>
-          </div>
+          </form>
           <img className="o-login-image" src={MTfront} alt=""></img>
         </div>
       </div>
