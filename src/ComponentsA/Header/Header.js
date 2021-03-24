@@ -7,7 +7,7 @@ import Logout from "../../Img/Admin/logout.svg";
 
 import "./Header.scss";
 
-function Header(props) {
+function Header() {
   const history = useHistory();
 
   const [title] = useState("Panel de control");
@@ -18,7 +18,7 @@ function Header(props) {
     <div className="o-headerA-container">
       <h2 className="o-title-headerA">{title}</h2>
       <div className="o-label-headerA">
-        <p style={{ textTransform: "capitalize" }}>{user.usuarioAdmin}</p>
+        <p style={{ textTransform: "capitalize" }}>{`${user.nombre} ${user.apellido}`}</p>
         <img
           src={Logout}
           alt=""

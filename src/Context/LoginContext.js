@@ -6,8 +6,7 @@ import creds from "../variables";
 const LoginContext = createContext();
 
 const LoginProvider = ({ children }) => {
-  const [type, setType] = useState();
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState("");
 
   const login = (userInput, passwordInput, history) => {
     swal({
@@ -22,46 +21,34 @@ const LoginProvider = ({ children }) => {
         password: passwordInput,
       })
       .then((res) => {
-        console.log(res.data);
-        if (res.data.length > 0) {
-          if (
-            userInput === res.data[0].usuarioAdmin &&
-            passwordInput === res.data[0].contrasenaAdmin
-          ) {
-            console.log(res.data[0]);
-            setUser(res.data[0]);
-            setType("admin");
-            history.push("/admin");
-            swal.close();
-          } else {
-            if (
-              userInput === res.data[0].usuarioAdmin &&
-              passwordInput === res.data[0].contrasenaAdmin
-            ) {
-              console.log(res.data[0]);
-              setUser(res.data[0]);
-              setType("user");
-              history.push("/user");
-              swal.close();
-            }
-          }
-        } else {
+        /*  */ console.log(res.data);
+        if (res.data === "empty") {
           swal({
             title: "Lo sentimos",
             text: "Los datos ingresados son incorrectos",
-            icon: "error"
+            icon: "error",
           });
+        } else {
+          if (res.data.tipo === "admin") {
+            setUser(res.data);
+            history.push("/admin");
+            swal.close();
+          }
+          if (res.data.tipo === "user") {
+            setUser(res.data);
+            history.push("/user");
+            swal.close();
+          }
         }
       });
   };
 
   const logout = (history) => {
-    setUser('')
-    setType('')
-    history.push('/')
+    setUser("");
+    history.push("/");
   };
 
-  const data = { user, type, login, logout };
+  const data = { user, login, logout };
 
   return <LoginContext.Provider value={data}>{children}</LoginContext.Provider>;
 };

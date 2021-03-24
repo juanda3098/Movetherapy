@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../Img/LogoHeader.png";
 
-import HeaderSelect from "../HeaderSelect/HeaderSelect"
-
 import "./HeaderHomePage.scss";
 
 function HeaderHomePage() {
@@ -15,21 +13,18 @@ function HeaderHomePage() {
         <img className="o-header-logo" src={Logo} alt="" />
       </Link>
       <div className="o-header-buttons-container">
-        <Link to="/Main/Services">
+        <Link to="/web/services">
           <button className="o-header-button">Servicios</button>
         </Link>
-        <Link to="/Main/AboutUs">
+        <Link to="/web/aboutus">
           <button className="o-header-button">Quiénes somos</button>
         </Link>
-        <Link to="/Main/ContactUs">
+        <Link to="/web/contactus">
           <button className="o-header-button">Contáctenos</button>
         </Link>
-        <Link to="/Main/Login">
+        <Link to="/web/login">
           <button className="o-header-button">Ingresar</button>
         </Link>
-      </div>
-      <div className="o-header-selector">
-        <HeaderSelect></HeaderSelect>
       </div>
     </div>
   );
