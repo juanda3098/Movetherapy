@@ -1,21 +1,33 @@
 import React from "react";
 
+import { DeletePatient } from "../../Utilities/PatientFunctions";
+
+import { ReactComponent as Delete } from "../../Img/Admin/delete.svg";
+import { ReactComponent as Edit } from "../../Img/Admin/pencil.svg";
+
 import "./Patient.scss";
 
 function Patient(props) {
-
-  let handleClick = () => {
-    props.handleEvent(props.patient)
-  }
-
   return (
-    <button className="o-patient-detail" onClick={handleClick}>
+    <div className="o-patient-detail">
       <p
-        style={{ width: "21vw" }}
-      >{`${props.patient.nombre1Paciente} ${props.patient.apellido1Paciente}`}</p>
-      <p style={{ width: "14vw" }}>{props.patient.cedulaPaciente}</p>
-      <p style={{ width: "22vw" }}>{props.patient.correoPaciente}</p>
-    </button>
+        style={{ width: "20vw" }}
+      >{`${props.patient.nombre1Paciente} ${props.patient.nombre2Paciente} ${props.patient.apellido1Paciente} ${props.patient.nombre2Paciente} `}</p>
+      <p style={{ width: "10vw" }}>{props.patient.cedulaPaciente}</p>
+      <p style={{ width: "12vw" }}>{props.patient.celularPaciente}</p>
+      <p style={{ width: "12vw" }}>{props.patient.telefonoPaciente}</p>
+      <p style={{ width: "20vw" }}>{props.patient.correoPaciente}</p>
+      <div className="o-icon-content">
+        <Edit
+          className="o-icon-action o-icon-edit"
+          onClick={() => props.handleEditEvent(props.patient)}
+        />
+        <Delete
+          className="o-icon-action o-icon-delete"
+          onClick={() => DeletePatient(props.patient.cedulaPaciente)}
+        />
+      </div>
+    </div>
   );
 }
 

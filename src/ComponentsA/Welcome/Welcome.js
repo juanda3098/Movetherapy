@@ -10,7 +10,6 @@ import "./Welcome.scss";
 
 function Welcome() {
   const { user } = useContext(LoginContext);
-  console.log(user);
 
   return (
     <div className="o-admin-container">
@@ -24,7 +23,7 @@ function Welcome() {
             <img src={Logo} alt="" className="o-img-welcome" />
             <h1 className="o-title-welcome">Bienvenido al panel</h1>
             <h1 className="o-title-welcome">administrativo</h1>
-            <p style={{ textTransform: 'capitalize'}}>{user.usuarioAdmin}</p>
+            <p style={{ textTransform: 'capitalize'}}>{`${user.nombre} ${user.apellido}`}</p>
           </div>
         </div>
       </div>

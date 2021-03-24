@@ -26,31 +26,32 @@ import "./Main.scss";
 
 function Main() {
   return (
-    <LoginProvider>
-      <BrowserRouter>
-        <Switch>
+    <BrowserRouter>
+      <Switch>
+        <LoginProvider>
+          {/* Página */}
           <Route path="/" exact component={Home} />
-          <Route path="/main/services" exact component={ServiceTab} />
-          <Route path="/main/aboutUs" exact component={AboutUs} />
-          <Route path="/main/contactUs" exact component={ContactUs} />
-          <Route path="/main/login" exact component={Login} />
-          <Route path="/main/createAccount" exact component={CreateAccount} />
-
+          <Route path="/web/services" exact component={ServiceTab} />
+          <Route path="/web/aboutus" exact component={AboutUs} />
+          <Route path="/web/contactus" exact component={ContactUs} />
+          <Route path="/web/login" exact component={Login} />
+          <Route path="/web/createaccount" exact component={CreateAccount} />
+          {/* Usuario */}
           <Route path="/user" exact component={WelcomeU} />
           <Route path="/user/appointment" exact component={AppointmentU} />
           <Route path="/user/routine" exact component={RoutineU} />
-
+          {/* Administrador */}
           <Route path="/admin" exact component={WelcomeA} />
           <Route path="/admin/patient" exact component={Patients} />
           <Route path="/admin/appointment" exact component={AppointmentA} />
           <Route path="/admin/routine" exact component={RoutineA} />
           <Route path="/admin/exercise" exact component={Exercises} />
           <Route path="/admin/profile" exact component={Profiles} />
+        </LoginProvider>
 
-          {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
-        </Switch>
-      </BrowserRouter>
-    </LoginProvider>
+        {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
+      </Switch>
+    </BrowserRouter>
   );
 }
 

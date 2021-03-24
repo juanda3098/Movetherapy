@@ -5,7 +5,6 @@
     margin: 0.8vw 0vw 0.3vw 0vw;
     padding: 0.5vh 1.5vw;
     display: flex;
-    justify-content: space-between;
     border-radius: 1vh;
     text-align: start;
     box-shadow: 3px 3px 5px $gray;
@@ -18,4 +17,23 @@
 
 .o-patient-detail p {
     margin: 0.2vw 0vw;
+}
+
+.o-icon-content {
+    display: flex;
+}
+
+.o-icon-action {
+    margin-right: 0.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: $gray;
+}
+
+.o-icon-edit:hover {
+    fill: $yellow
+}
+
+.o-icon-delete:hover {
+    fill: $red
 }

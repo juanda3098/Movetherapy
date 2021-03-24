@@ -1,142 +1,160 @@
-@import '../../variableStyles.scss';
+@import "../../variableStyles.scss";
 
 .o-patients-container {
-    background: $grey;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
+  background: $grey;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .o-patients-content {
-    // background: chocolate;
-    background: $white;
-    padding: 2vw;
-    width: 60vw;
-    height: 82.7vh;
+  background: $white;
+  padding: 2vw;
+  width: 90vw;
+  height: 82.7vh;
 }
 
 .o-search-patients {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .o-search-patients h3 {
-    color: $blue;
+  color: $blue;
 }
 
 .o-field-search {
-    padding: 0.3vw 1vw;
-    border-radius: 5vw;
-    border: none;
-    box-shadow: 1px 1px 5px $black inset;
+  padding: 0.3vw 1vw;
+  border-radius: 5vw;
+  border: none;
+  box-shadow: 1px 1px 5px $black inset;
 }
 
 .o-patients-field {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .o-patient-label {
-    // background: red;
-    padding: 0vw 1.5vw;
-    color: $blue;
-    display: flex;
-    text-align: start;
-    border-bottom: 2px solid $blue;
+  padding: 0vw 1.5vw;
+  color: $blue;
+  display: flex;
+  text-align: start;
+  border-bottom: 2px solid $blue;
 }
 
 .o-patient-label h4 {
-    margin: 1vw 0vw 0.5vw 0vw;
+  margin: 1vw 0vw 0.5vw 0vw;
 }
 
 .o-patients-list {
-    // background: burlywood;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
 .o-add-container {
-    // background: red;
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .o-add-patient {
-    margin-top: 3vh;
-    width: 4vw;
-    border-radius: 5vw;
-    box-shadow: 1px 1px 5px $black;
+  margin-top: 3vh;
+  width: 4vw;
+  border-radius: 5vw;
+  box-shadow: 1px 1px 5px $black;
 }
 
 .o-add-patient:hover {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.o-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
 }
 
 .o-patient-info {
-    background: $white;
-    margin-left: 1vw;
-    width: 26vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background: $white;
+  box-shadow: 2px 2px 10px $black;
+  width: 50vw;
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
 }
 
 .o-info-title {
-    color: $blue;
-    width: 20vw;
-    display: flex;
+  color: $blue;
 }
 
 .o-patient-field {
-    // background: cyan;
-    color: $blue;
-    width: 20vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  color: $blue;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.o-patient-field h4 {
-    margin: 0vw 0vw 0.5vw 0vw;
+.o-patient-field h5 {
+  margin: 0vw 0vw 0.5vw 0vw;
+}
+
+.o-row {
+  width: 38rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .o-field-patient {
-    background: $grey;
-    width: 18vw;
-    margin-bottom: 1vw;
-    padding: 0.3vw 1vw;
-    border: none;
-    border-radius: 1vh;
+  background: $grey;
+  width: 18vw;
+  height: 1.2vw;
+  margin-bottom: 1vw;
+  padding: 0.3vw 1vw;
+  border: none;
+  border-radius: 1vh;
 }
 
 .o-button-container {
-    // background: blue;
-    width: 20vw;
-    display: flex;
-    justify-content: flex-end;
+  width: 20vw;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .o-button-action {
-    color: $white;
-    width: 8vw;
-    padding: 1vh 1vw;
-    border: none;
-    border-radius: 1vw;
-    box-shadow: 1px 1px 5px $black;
+  color: $white;
+  width: 8vw;
+  padding: 1vh 1vw;
+  margin-right: 3.5rem;
+  border: none;
+  border-radius: 1vw;
+  box-shadow: 1px 1px 5px $black;
+}
+
+.o-close {
+  background: $red;
 }
 
 .o-create {
-    background: $green;
+  background: $greenDark;
 }
 
 .o-edit {
-    background: $yellow;
+  background: $yellow;
 }
 
 .o-delete {
-    background: $red;
+  fill: $red;
 }

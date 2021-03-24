@@ -13,6 +13,8 @@ import MTfront from "./../../Img/MoveTherapyFront.png";
 function Login() {
   const history = useHistory();
 
+  const { login } = useContext(LoginContext);
+
   const [userInput, setUserInput] = useState();
   const [passwordInput, setPasswordInput] = useState();
 
@@ -24,13 +26,9 @@ function Login() {
     setPasswordInput(event.target.value);
   };
 
-  const { login } = useContext(LoginContext);
-
   const isLogin = (e) => {
     e.preventDefault();
-
     login(userInput, passwordInput, history);
-
   };
 
   return (
