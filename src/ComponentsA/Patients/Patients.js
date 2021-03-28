@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Switch from "react-switch";
-import axios from "axios";
-import creds from "../../variables";
 
-import { PatientList, CreatePatient } from "../../Utilities/PatientFunctions";
+import { PatientList, CreatePatient, EditPatient } from "../../Utilities/PatientFunctions";
 
 import Add from "../../Img/Admin/add.svg";
 
@@ -27,8 +25,7 @@ function Patients() {
     fechaNacimientoPaciente: "",
     correoPaciente: "",
     contrasenaPaciente: "",
-    practicaDeporte: "",
-    idPaciente: "",
+    practicaDeporte: isDeport,
   });
 
   useEffect(() => {
@@ -36,36 +33,9 @@ function Patients() {
   }, []);
 
   const createEvent = () => {
-    CreatePatient(actionPatient);
-  };
-
-  const deletePatient = () => {
-    axios
-      .delete(`${creds.url}/paciente/cedula/${actionPatient.cedulaPaciente}`)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    window.location.reload(true);
-  };
-
-  let updatePatient = (event) => {
-    event.preventDefault();
+    CreatePatient(actionPatient, setListPatients);
     setShowModal(false);
-    axios
-      .post(`${creds.url}/paciente/editar`, {
-        actionPatient,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-    window.location.reload(true);
+    clearForm();
   };
 
   const handleField = (event) => {
@@ -75,8 +45,15 @@ function Patients() {
     });
   };
 
-  let editEvent = (param) => {
-    setActionPatient(param);
+  const editEvent = () => {
+    EditPatient(actionPatient, setListPatients);
+    setShowModal(false);
+    clearForm();
+  }
+
+  const handleEdit = (patient) => {
+    setActionPatient(patient)
+    console.log(patient.practicaDeporte);
     setIsEdit(true);
     setShowModal(true);
     //setIsSelected(true);
@@ -98,10 +75,8 @@ function Patients() {
       fechaNacimientoPaciente: "",
       correoPaciente: "",
       contrasenaPaciente: "",
-      practicaDeporte: "",
-      idPaciente: "",
+      practicaDeporte: false,
     });
-    /*     setIsSelected(false); */
   }
 
   const handle = () => {
@@ -142,7 +117,8 @@ function Patients() {
                       <Patient
                         key={index}
                         patient={patient}
-                        handleEditEvent={editEvent}
+                        handleEditEvent={handleEdit}
+                        setListPatients={setListPatients}
                       />
                     );
                   })}
@@ -165,7 +141,7 @@ function Patients() {
                   </div>
                   <div className="o-row">
                     <div className="o-patient-field">
-                      <h5>Primer nombre</h5>
+                      <h4>Primer nombre</h4>
                       <input
                         required
                         className="o-field-patient"
@@ -176,7 +152,7 @@ function Patients() {
                       />
                     </div>
                     <div className="o-patient-field">
-                      <h5>Segundo nombre</h5>
+                      <h4>Segundo nombre</h4>
                       <input
                         className="o-field-patient"
                         onChange={handleField}
@@ -188,7 +164,7 @@ function Patients() {
                   </div>
                   <div className="o-row">
                     <div className="o-patient-field">
-                      <h5>Primer apellido</h5>
+                      <h4>Primer apellido</h4>
                       <input
                         className="o-field-patient"
                         onChange={handleField}
@@ -198,7 +174,7 @@ function Patients() {
                       />
                     </div>
                     <div className="o-patient-field">
-                      <h5>Segundo apellido</h5>
+                      <h4>Segundo apellido</h4>
                       <input
                         className="o-field-patient"
                         onChange={handleField}
@@ -210,7 +186,7 @@ function Patients() {
                   </div>
                   <div className="o-row">
                     <div className="o-patient-field">
-                      <h5>Cédula</h5>
+                      <h4>Cédula</h4>
                       <input
                         className="o-field-patient"
                         onChange={handleField}
@@ -220,7 +196,7 @@ function Patients() {
                       />
                     </div>
                     <div className="o-patient-field">
-                      <h5>Fecha de nacimiento</h5>
+                      <h4>Fecha de nacimiento</h4>
                       <input
                         className="o-field-patient"
                         onChange={handleField}
@@ -232,7 +208,7 @@ function Patients() {
                   </div>
                   <div className="o-row">
                     <div className="o-patient-field">
-                      <h5>Teléfono</h5>
+                      <h4>Teléfono</h4>
                       <input
                         className="o-field-patient"
                         onChange={handleField}
@@ -242,7 +218,7 @@ function Patients() {
                       />
                     </div>
                     <div className="o-patient-field">
-                      <h5>Celular</h5>
+                      <h4>Celular</h4>
                       <input
                         className="o-field-patient"
                         onChange={handleField}
@@ -254,7 +230,7 @@ function Patients() {
                   </div>
                   <div className="o-row">
                     <div className="o-patient-field">
-                      <h5>Correo</h5>
+                      <h4>Correo</h4>
                       <input
                         className="o-field-patient"
                         onChange={handleField}
@@ -264,7 +240,7 @@ function Patients() {
                       />
                     </div>
                     <div className="o-patient-field">
-                      <h5>Contraseña</h5>
+                      <h4>Contraseña</h4>
                       <input
                         className="o-field-patient"
                         onChange={handleField}
@@ -276,32 +252,34 @@ function Patients() {
                   </div>
                   <div className="o-row">
                     <div className="o-patient-field">
-                      <h5>Practica deporte</h5>
+                      <h4>Practica deporte</h4>
                       <Switch onChange={() => handle()} checked={isDeport} />
                     </div>
                   </div>
-                  <div className="o-button-container">
-                    {isEdit ? (
+                  <div className="o-row">
+                    <div className="o-button-container">
                       <button
-                        className="o-button-action o-edit"
-                        onClick={() => updatePatient()}
+                        className="o-button-action o-close"
+                        onClick={() => setShowModal(false)}
                       >
-                        Editar
+                        Cerrar
                       </button>
-                    ) : (
-                      <button
-                        className="o-button-action o-create"
-                        onClick={() => createEvent()}
-                      >
-                        Crear
-                      </button>
-                    )}
-                    <button
-                      className="o-button-action o-close"
-                      onClick={() => setShowModal(false)}
-                    >
-                      Cerrar
-                    </button>
+                      {isEdit ? (
+                        <button
+                          className="o-button-action o-edit"
+                          onClick={() => editEvent()}
+                        >
+                          Editar
+                        </button>
+                      ) : (
+                        <button
+                          className="o-button-action o-create"
+                          onClick={() => createEvent()}
+                        >
+                          Crear
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
