@@ -12,7 +12,7 @@ function Patient(props) {
     <div className="o-patient-detail">
       <p
         style={{ width: "20vw" }}
-      >{`${props.patient.nombre1Paciente} ${props.patient.nombre2Paciente} ${props.patient.apellido1Paciente} ${props.patient.nombre2Paciente} `}</p>
+      >{`${props.patient.nombre1Paciente} ${props.patient.nombre2Paciente} ${props.patient.apellido1Paciente} ${props.patient.apellido2Paciente} `}</p>
       <p style={{ width: "10vw" }}>{props.patient.cedulaPaciente}</p>
       <p style={{ width: "12vw" }}>{props.patient.celularPaciente}</p>
       <p style={{ width: "12vw" }}>{props.patient.telefonoPaciente}</p>
@@ -24,7 +24,7 @@ function Patient(props) {
         />
         <Delete
           className="o-icon-action o-icon-delete"
-          onClick={() => DeletePatient(props.patient.cedulaPaciente)}
+          onClick={() => DeletePatient(props.patient, props.setListPatients)}
         />
       </div>
     </div>
