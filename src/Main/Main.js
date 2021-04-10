@@ -20,7 +20,7 @@ import Patients from "../ComponentsA/Patients/Patients";
 import AppointmentA from "../ComponentsA/Appointment/Appointment";
 import RoutineA from "../ComponentsA/Routines/Routines";
 import Exercises from "../ComponentsA/Exercises/Exercises";
-import Profiles from "../ComponentsA/Profiles/Profiles";
+import Physio from "../ComponentsA/Physios/Physios";
 
 import "./Main.scss";
 
@@ -46,10 +46,8 @@ function Main() {
           <Route path="/admin/appointment" exact component={AppointmentA} />
           <Route path="/admin/routine" exact component={RoutineA} />
           <Route path="/admin/exercise" exact component={Exercises} />
-          <Route path="/admin/profile" exact component={Profiles} />
+          <Route path="/admin/physio" exact component={Physio} />
         </LoginProvider>
-
-        {/* <Route path="/Profile" component={() => <Profile user={this.state.user} />} /> */}
       </Switch>
     </BrowserRouter>
   );

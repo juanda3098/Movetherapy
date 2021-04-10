@@ -21,7 +21,7 @@ const LoginProvider = ({ children }) => {
         password: passwordInput,
       })
       .then((res) => {
-        /*  */ console.log(res.data);
+        console.log(res.data);
         if (res.data === "empty") {
           swal({
             title: "Lo sentimos",

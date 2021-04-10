@@ -1,33 +1,92 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import { PatientList } from "../../Utilities/PatientFunctions";
+
+import {
+  AppointmentList,
+  EditAppointment,
+  CreateAppointment,
+} from "../../Utilities/AppointmentFunctions";
 
 import Menu from "../Menu/Menu";
 import Header from "../Header/Header";
 
+import TextField from "@material-ui/core/TextField";
 import FullCalendar from "@fullcalendar/react";
-
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-
-// import Add from "../../Img/Admin/add.svg";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import Button from "@material-ui/core/Button";
 
 import "./Appointment.scss";
 
 function Appointment() {
+  const [listPatients, setListPatients] = useState([]);
+  const [listAppointments, setListAppointments] = useState([]);
+  const [isEdit, setIsEdit] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedHour, setSelectedHour] = useState();
+  const [actionAppointment, setActionAppointment] = useState([]);
+
   const [events] = useState([
-    { title: "event 1", date: "2020-09-01" },
-    { title: "event 2", date: "2020-09-02" },
+    { title: "event 1", start: "2021-04-01T08:30"},
+    { title: "event 2", date: "2021-04-02" },
   ]);
 
-  // dateClick: (e) => {
-  //   //handle date click
-  //   console.log(e)
-  //   console.log(e.date)
-  // },
-  // eventClick: function (e) {
-  //   // e.jsEvent.preventDefault(); // don't let the browser navigate
-  //   console.log(e)
-  // },
+  const handlePatientSelected = (cadena) => {
+    if (cadena) {
+      var cedula = cadena.split(",", 1);
+      setActionAppointment({
+        ...actionAppointment,
+        fkCedula: cedula,
+      });
+    }
+  };
+
+  const handleHourChange = (e) => {
+    setSelectedHour(e.target.value);
+    setActionAppointment({
+      ...actionAppointment,
+      horaCita: e.target.value,
+    });
+  };
+
+  const handleCreate = (e) => {
+    setActionAppointment({
+      ...actionAppointment,
+      fechaCita: e.dateStr,
+    });
+    setShowModal(true)
+  }
+
+  const functionAction = (e) => {
+    console.log(actionAppointment);
+    if (isEdit) {
+      EditAppointment(actionAppointment, setListAppointments);
+    } else {
+      console.log('creacion');
+      CreateAppointment(actionAppointment, setListAppointments);
+    }
+    setShowModal(false);
+    clearForm();
+    e.preventDefault();
+  };
+
+  function clearForm() {
+    setActionAppointment([]);
+  }
+  const handleField = (e) => {
+    setActionAppointment({
+      ...actionAppointment,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  useEffect(() => {
+    PatientList(setListPatients);
+    AppointmentList(setListAppointments);
+  }, []);
 
   return (
     <div className="o-admin-container">
@@ -46,7 +105,7 @@ function Appointment() {
               <div className="o-appointments-field">
                 <FullCalendar
                   plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                  events={events}
+                  events={actionAppointment}
                   headerToolbar={{
                     left: "prev,next today",
                     center: "title",
@@ -71,38 +130,112 @@ function Appointment() {
                   }}
                   nowIndicator={true}
                   locale="es"
-                  dateClick={(e) => {
-                    //handle date click
-                    console.log(e);
-                    console.log(e.date);
-                  }}
+                  dateClick={handleCreate}
                   eventClick={function (e) {
                     // e.jsEvent.preventDefault(); // don't let the browser navigate
-                    console.log(e);
+                    setShowModal(true);
+                    console.log("evento", e);
                   }}
                 />
               </div>
             </div>
-            <div className="o-appointment-info">
-              {/* <div className="o-info-title">
-          <h3>Ejercicio</h3>
-        </div>
-        <div className="o-routine-field">
-          <h4>Nombre</h4>
-          <input className="o-field-routine" type="text" />
-        </div>
-        <div className="o-routine-field">
-          <h4>Descripción</h4>
-          <input className="o-field-routine" type="text" />
-        </div>
-        <div className="o-routine-field">
-          <h4>Link de video</h4>
-          <input className="o-field-routine" type="text" />
-        </div>
-        <div className="o-button-container">
-          <button className="o-button-action">Agregar</button>
-        </div> */}
-            </div>
+            {showModal ? (
+              <div className="o-appointment-modal">
+                <form onSubmit={functionAction} className="o-appointment-info">
+                  <div className="o-info-title">
+                    <h3>Cita</h3>
+                  </div>
+                  <div className="o-row">
+                    <Autocomplete
+                      id="combo-box-demo"
+                      options={listPatients}
+                      getOptionLabel={(paciente) =>
+                        `${paciente.cedulaPaciente}, ${paciente.nombre1Paciente} ${paciente.nombre2Paciente} ${paciente.apellido1Paciente} ${paciente.apellido2Paciente}`
+                      }
+                      onChange={(e) =>
+                        handlePatientSelected(e.target.outerText)
+                      }
+                      style={{ width: 300 }}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          margin="normal"
+                          label="Selecciona un paciente"
+                          variant="outlined"
+                          size="small"
+                          style={{ width: "25rem" }}
+                          required
+                        />
+                      )}
+                    />
+                  </div>
+                  <div className="o-row">
+                    <TextField
+                      required
+                      variant="outlined"
+                      margin="normal"
+                      size="small"
+                      id="time"
+                      label="Hora de la cita"
+                      type="time"
+                      onChange={handleHourChange}
+                      defaultValue=""
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      inputProps={
+                        {
+                          //step: 1800, // 5 min
+                        }
+                      }
+                    />
+                  </div>
+                  <div className="o-row-appointment">
+                    <TextField
+                      margin="normal"
+                      size="small"
+                      id="observacionCita"
+                      label="Descripcion de la cita"
+                      multiline
+                      onChange={(e) => handleField(e)}
+                      rows={6}
+                      defaultValue=""
+                      variant="outlined"
+                      style={{ width: "25rem" }}
+                    />
+                  </div>
+                  <div className="o-row">
+                    <div className="o-button-container">
+                      <Button
+                        variant="contained"
+                        onClick={() => setShowModal(false)}
+                        style={{ marginRight: "1rem" }}
+                        color="secondary"
+                      >
+                        Cerrar
+                      </Button>
+                      {isEdit ? (
+                        <Button
+                          variant="contained"
+                          type="submit"
+                          color="primary"
+                        >
+                          Editar
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="contained"
+                          type="submit"
+                          color="primary"
+                        >
+                          Crear
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </form>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

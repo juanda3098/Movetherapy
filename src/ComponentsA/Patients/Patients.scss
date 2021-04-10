@@ -62,17 +62,14 @@
 }
 
 .o-add-patient {
-  margin-top: 3vh;
-  width: 4vw;
-  border-radius: 5vw;
-  box-shadow: 1px 1px 5px $black;
+  font-size: 10rem;
 }
 
 .o-add-patient:hover {
   cursor: pointer;
 }
 
-.o-modal {
+.o-patient-modal {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +84,7 @@
 .o-patient-info {
   background: $white;
   box-shadow: 2px 2px 10px $black;
-  width: 43vw;
+  width: 35vw;
   height: 63vh;
   display: flex;
   flex-direction: column;

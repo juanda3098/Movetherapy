@@ -3,11 +3,11 @@ import swal from "sweetalert";
 import creds from "../variables";
 
 /* Listado de pacientes */
-export const PatientList = (setListPatients) => {
+export const PhysioList = (setListPhysio) => {
   axios
-    .get(`${creds.url}/paciente/lista`)
+    .get(`${creds.url}/fisio/lista`)
     .then((res) => {
-      setListPatients(res.data);
+      setListPhysio(res.data);
     })
     .catch(function (error) {
       console.log(error);
@@ -18,24 +18,23 @@ export const PatientList = (setListPatients) => {
 export const SearchPatient = (cedula, setPatientSelected) => {};
 
 /* Eliminar un paciente */
-export const DeletePatient = (paciente, setListPatients) => {
+export const DeletePhysio = (fisioterapeuta, setListPhysio) => {
   var name = "";
-  if (paciente.nombre1Paciente) {
-    name = `${name} ${paciente.nombre1Paciente}`;
+  if (fisioterapeuta.nombre1Fisio) {
+    name = `${name} ${fisioterapeuta.nombre1Fisio}`;
   }
-  if (paciente.nombre2Paciente) {
-    name = `${name} ${paciente.nombre2Paciente}`;
+  if (fisioterapeuta.nombre2Fisio) {
+    name = `${name} ${fisioterapeuta.nombre2Fisio}`;
   }
-  if (paciente.apellido1Paciente) {
-    name = `${name} ${paciente.apellido1Paciente}`;
+  if (fisioterapeuta.apellido1Fisio) {
+    name = `${name} ${fisioterapeuta.apellido1Fisio}`;
   }
-  if (paciente.apellido2Paciente) {
-    name = `${name} ${paciente.apellido2Paciente}`;
+  if (fisioterapeuta.apellido2Fisio) {
+    name = `${name} ${fisioterapeuta.apellido2Fisio}`;
   }
-
   swal({
     title: "Estas seguro?",
-    text: `Deseas borrar al paciente: ${name}?`,
+    text: `Deseas borrar al fisioterapeuta: ${name}?`,
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -47,15 +46,15 @@ export const DeletePatient = (paciente, setListPatients) => {
         icon: "info",
       });
       axios
-        .delete(`${creds.url}/paciente/cedula/${paciente.cedulaPaciente}`)
+        .delete(`${creds.url}/fisio/cedula/${fisioterapeuta.cedulaFisio}`)
         .then(function (res) {
           if (res.data === "success") {
             swal({
-              title: "Paciente eliminado",
-              text: `Se ha eliminado satisfactoriamente el paciente: ${name}`,
+              title: "Fisioterapeuta eliminado",
+              text: `Se ha eliminado satisfactoriamente el fisioterapeuta: ${name}`,
               icon: "success",
             });
-            PatientList(setListPatients);
+            PhysioList(setListPhysio);
           }
           if (res.data === "failed") {
             swal({
@@ -74,39 +73,39 @@ export const DeletePatient = (paciente, setListPatients) => {
   });
 };
 
-/* Crear un paciente */
-export const CreatePatient = (paciente, setListPatients) => {
+/* Crear un fisioterapeuta */
+export const CreatePhysio = (fisioterapeuta, setListPhysio) => {
   var name = "";
-  if (paciente.nombre1Paciente) {
-    name = `${name} ${paciente.nombre1Paciente}`;
+  if (fisioterapeuta.nombre1Fisio) {
+    name = `${name} ${fisioterapeuta.nombre1Fisio}`;
   }
-  if (paciente.nombre2Paciente) {
-    name = `${name} ${paciente.nombre2Paciente}`;
+  if (fisioterapeuta.nombre2Fisio) {
+    name = `${name} ${fisioterapeuta.nombre2Fisio}`;
   }
-  if (paciente.apellido1Paciente) {
-    name = `${name} ${paciente.apellido1Paciente}`;
+  if (fisioterapeuta.apellido1Fisio) {
+    name = `${name} ${fisioterapeuta.apellido1Fisio}`;
   }
-  if (paciente.apellido2Paciente) {
-    name = `${name} ${paciente.apellido2Paciente}`;
+  if (fisioterapeuta.apellido2Fisio) {
+    name = `${name} ${fisioterapeuta.apellido2Fisio}`;
   }
   swal({
     title: "Creando...",
-    text: "Estamos creando un nuevo paciente",
+    text: "Estamos creando un nuevo fisioterapeuta",
     icon: "info",
     buttons: false,
   });
   axios
-    .post(`${creds.url}/paciente/registro`, {
-      paciente,
+    .post(`${creds.url}/fisio/registro`, {
+      fisioterapeuta,
     })
     .then(function (res) {
       if (res.data === "success") {
         swal({
-          title: "Paciente creado",
-          text: `Se ha creado satisfactoriamente el paciente: ${name}`,
+          title: "Fisioterapeuta creado",
+          text: `Se ha creado satisfactoriamente el fisioterapeuta: ${name}`,
           icon: "success",
         });
-        PatientList(setListPatients);
+        PhysioList(setListPhysio);
       }
       if (res.data === "failed") {
         swal({
@@ -122,10 +121,11 @@ export const CreatePatient = (paciente, setListPatients) => {
 };
 
 /* Editar un paciente */
-export const EditPatient = (actionPatient, setListPatients) => {
+export const EditPhysio = (fisioterapeuta, setListPhysio) => {
+  console.log(fisioterapeuta);
   swal({
     title: "Estas seguro?",
-    text: "Deseas editar los datos de este paciente?",
+    text: "Deseas editar los datos de este fisioterapeuta?",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -137,17 +137,17 @@ export const EditPatient = (actionPatient, setListPatients) => {
         icon: "info",
       });
       axios
-        .post(`${creds.url}/paciente/editar`, {
-          actionPatient,
+        .post(`${creds.url}/fisio/editar`, {
+          fisioterapeuta,
         })
         .then(function (res) {
           if (res.data === "success") {
             swal({
-              title: "Paciente editado",
-              text: "Se ha editado satisfactoriamente el paciente",
+              title: "Fisioterapeuta editado",
+              text: "Se ha editado satisfactoriamente el fisioterapeuta",
               icon: "success",
             });
-            PatientList(setListPatients);
+            PhysioList(setListPhysio);
           }
           if (res.data === "failed") {
             swal({

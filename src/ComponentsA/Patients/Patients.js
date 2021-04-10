@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
-import Switch from "react-switch";
 
-import { PatientList, CreatePatient, EditPatient } from "../../Utilities/PatientFunctions";
+import {
+  PatientList,
+  CreatePatient,
+  EditPatient,
+} from "../../Utilities/PatientFunctions";
 
-import Add from "../../Img/Admin/add.svg";
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
+import TextField from "@material-ui/core/TextField";
+import FormLabel from "@material-ui/core/FormLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
+import Button from "@material-ui/core/Button";
 
 import Menu from "../Menu/Menu";
 import Header from "../Header/Header";
@@ -17,14 +28,6 @@ function Patients() {
   const [showModal, setShowModal] = useState(false);
   const [isDeport, setIsDeport] = useState(false);
   const [actionPatient, setActionPatient] = useState({
-    cedulaPaciente: "",
-    nombre1Paciente: "",
-    apellido1Paciente: "",
-    celularPaciente: "",
-    telefonoPaciente: "",
-    fechaNacimientoPaciente: "",
-    correoPaciente: "",
-    contrasenaPaciente: "",
     practicaDeporte: isDeport,
   });
 
@@ -32,61 +35,54 @@ function Patients() {
     PatientList(setListPatients);
   }, []);
 
-  const createEvent = () => {
-    CreatePatient(actionPatient, setListPatients);
+  const functionAction = (e) => {
+    if (isEdit) {
+      EditPatient(actionPatient, setListPatients);
+    } else {
+      CreatePatient(actionPatient, setListPatients);
+    }
     setShowModal(false);
     clearForm();
+    e.preventDefault();
   };
 
-  const handleField = (event) => {
+  const handleField = (e) => {
     setActionPatient({
       ...actionPatient,
-      [event.target.name]: event.target.value,
+      [e.target.id]: e.target.value,
     });
   };
 
-  const editEvent = () => {
-    EditPatient(actionPatient, setListPatients);
-    setShowModal(false);
-    clearForm();
-  }
-
-  const handleEdit = (patient) => {
-    setActionPatient(patient)
-    console.log(patient.practicaDeporte);
-    setIsEdit(true);
-    setShowModal(true);
-    //setIsSelected(true);
+  const handleDateChange = (e) => {
+    setActionPatient({
+      ...actionPatient,
+      fechaNacimientoPaciente: e.target.value,
+    });
   };
 
-  const openModalCreate = () => {
+  const handleIsDeport = () => {
+    setIsDeport(!isDeport);
+    setActionPatient({
+      ...actionPatient,
+      practicaDeporte: !isDeport,
+    });
+  };
+
+  const handleEdit = (patient) => {
+    setActionPatient(patient);
+    setIsEdit(true);
+    setShowModal(true);
+  };
+
+  const handleCreate = () => {
     clearForm();
     setIsEdit(false);
     setShowModal(true);
   };
 
   function clearForm() {
-    setActionPatient({
-      cedulaPaciente: "",
-      nombre1Paciente: "",
-      apellido1Paciente: "",
-      celularPaciente: "",
-      telefonoPaciente: "",
-      fechaNacimientoPaciente: "",
-      correoPaciente: "",
-      contrasenaPaciente: "",
-      practicaDeporte: false,
-    });
+    setActionPatient({ practicaDeporte: isDeport });
   }
-
-  const handle = () => {
-    setIsDeport(!isDeport);
-    setActionPatient({
-      ...actionPatient,
-      practicaDeporte: !isDeport,
-    });
-    console.log(!isDeport);
-  };
 
   return (
     <div className="o-admin-container">
@@ -124,164 +120,182 @@ function Patients() {
                   })}
                 </div>
                 <div className="o-add-container">
-                  <img
-                    src={Add}
-                    alt=""
-                    className="o-add-patient"
-                    onClick={openModalCreate}
-                  />
+                  <Fab
+                    onClick={handleCreate}
+                    color="primary"
+                    aria-label="add"
+                    style={{ fontSize: "4rem" }}
+                  >
+                    <AddIcon />
+                  </Fab>
                 </div>
               </div>
             </div>
             {showModal ? (
-              <div className="o-modal">
-                <div className="o-patient-info">
+              <div className="o-patient-modal">
+                <form onSubmit={functionAction} className="o-patient-info">
                   <div className="o-info-title">
                     <h3>Paciente</h3>
                   </div>
                   <div className="o-row">
-                    <div className="o-patient-field">
-                      <h4>Primer nombre</h4>
-                      <input
-                        required
-                        className="o-field-patient"
-                        onChange={handleField}
-                        type="text"
-                        name="nombre1Paciente"
-                        value={actionPatient.nombre1Paciente}
-                      />
-                    </div>
-                    <div className="o-patient-field">
-                      <h4>Segundo nombre</h4>
-                      <input
-                        className="o-field-patient"
-                        onChange={handleField}
-                        type="text"
-                        name="nombre2Paciente"
-                        value={actionPatient.nombre2Paciente}
-                      />
-                    </div>
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Primer nombre"
+                      id="nombre1Paciente"
+                      defaultValue={actionPatient.nombre1Paciente}
+                      variant="outlined"
+                      size="small"
+                    />
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      label="Segundo nombre"
+                      id="nombre2Paciente"
+                      defaultValue={actionPatient.nombre2Paciente}
+                      variant="outlined"
+                      size="small"
+                    />
                   </div>
                   <div className="o-row">
-                    <div className="o-patient-field">
-                      <h4>Primer apellido</h4>
-                      <input
-                        className="o-field-patient"
-                        onChange={handleField}
-                        type="text"
-                        name="apellido1Paciente"
-                        value={actionPatient.apellido1Paciente}
-                      />
-                    </div>
-                    <div className="o-patient-field">
-                      <h4>Segundo apellido</h4>
-                      <input
-                        className="o-field-patient"
-                        onChange={handleField}
-                        type="text"
-                        name="apellido2Paciente"
-                        value={actionPatient.apellido2Paciente}
-                      />
-                    </div>
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Primer apellido"
+                      id="apellido1Paciente"
+                      defaultValue={actionPatient.apellido1Paciente}
+                      variant="outlined"
+                      size="small"
+                    />
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      label="Segundo apellido"
+                      id="apellido2Paciente"
+                      defaultValue={actionPatient.apellido2Paciente}
+                      variant="outlined"
+                      size="small"
+                    />
                   </div>
                   <div className="o-row">
-                    <div className="o-patient-field">
-                      <h4>Cédula</h4>
-                      <input
-                        className="o-field-patient"
-                        onChange={handleField}
-                        type="text"
-                        name="cedulaPaciente"
-                        value={actionPatient.cedulaPaciente}
-                      />
-                    </div>
-                    <div className="o-patient-field">
-                      <h4>Fecha de nacimiento</h4>
-                      <input
-                        className="o-field-patient"
-                        onChange={handleField}
-                        type="date"
-                        name="fechaNacimientoPaciente"
-                        value={actionPatient.fechaNacimientoPaciente}
-                      />
-                    </div>
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Cédula"
+                      id="cedulaPaciente"
+                      defaultValue={actionPatient.cedulaPaciente}
+                      variant="outlined"
+                      size="small"
+                    />
+                    <TextField
+                      required
+                      margin="normal"
+                      id="fechaNacimientoPaciente"
+                      label="Fecha de nacimiento"
+                      type="date"
+                      variant="outlined"
+                      size="small"
+                      onChange={handleDateChange}
+                      value={actionPatient.fechaNacimientoPaciente}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                    />
                   </div>
                   <div className="o-row">
-                    <div className="o-patient-field">
-                      <h4>Teléfono</h4>
-                      <input
-                        className="o-field-patient"
-                        onChange={handleField}
-                        type="text"
-                        name="telefonoPaciente"
-                        value={actionPatient.telefonoPaciente}
-                      />
-                    </div>
-                    <div className="o-patient-field">
-                      <h4>Celular</h4>
-                      <input
-                        className="o-field-patient"
-                        onChange={handleField}
-                        type="text"
-                        name="celularPaciente"
-                        value={actionPatient.celularPaciente}
-                      />
-                    </div>
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Teléfono"
+                      id="telefonoPaciente"
+                      defaultValue={actionPatient.telefonoPaciente}
+                      variant="outlined"
+                      size="small"
+                    />
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Celular"
+                      id="celularPaciente"
+                      defaultValue={actionPatient.celularPaciente}
+                      variant="outlined"
+                      size="small"
+                    />
                   </div>
                   <div className="o-row">
-                    <div className="o-patient-field">
-                      <h4>Correo</h4>
-                      <input
-                        className="o-field-patient"
-                        onChange={handleField}
-                        type="text"
-                        name="correoPaciente"
-                        value={actionPatient.correoPaciente}
-                      />
-                    </div>
-                    <div className="o-patient-field">
-                      <h4>Contraseña</h4>
-                      <input
-                        className="o-field-patient"
-                        onChange={handleField}
-                        type="text"
-                        name="contrasenaPaciente"
-                        value={actionPatient.contrasenaPaciente}
-                      />
-                    </div>
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Correo"
+                      id="correoPaciente"
+                      defaultValue={actionPatient.correoPaciente}
+                      variant="outlined"
+                      size="small"
+                    />
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Contraseña"
+                      id="contrasenaPaciente"
+                      defaultValue={actionPatient.contrasenaPaciente}
+                      variant="outlined"
+                      size="small"
+                    />
                   </div>
                   <div className="o-row">
-                    <div className="o-patient-field">
-                      <h4>Practica deporte</h4>
-                      <Switch onChange={() => handle()} checked={isDeport} />
-                    </div>
+                    <FormControl required margin="normal" component="fieldset">
+                      <FormLabel component="legend">Practica deporte</FormLabel>
+                      <FormGroup>
+                        <FormControlLabel
+                          control={
+                            <Switch
+                              checked={isDeport}
+                              color="primary"
+                              onChange={handleIsDeport}
+                              id="practicaDeporte"
+                            />
+                          }
+                        />
+                      </FormGroup>
+                    </FormControl>
                   </div>
-                  <div className="o-row">
+                  <div className="o-row-routines">
                     <div className="o-button-container">
-                      <button
-                        className="o-button-action o-close"
+                      <Button
+                        variant="contained"
                         onClick={() => setShowModal(false)}
+                        style={{ marginRight: "1rem" }}
+                        color="secondary"
                       >
                         Cerrar
-                      </button>
+                      </Button>
                       {isEdit ? (
-                        <button
-                          className="o-button-action o-edit"
-                          onClick={() => editEvent()}
+                        <Button
+                          variant="contained"
+                          type="submit"
+                          color="primary"
                         >
                           Editar
-                        </button>
+                        </Button>
                       ) : (
-                        <button
-                          className="o-button-action o-create"
-                          onClick={() => createEvent()}
+                        <Button
+                          variant="contained"
+                          type="submit"
+                          color="primary"
                         >
                           Crear
-                        </button>
+                        </Button>
                       )}
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
             ) : null}
           </div>

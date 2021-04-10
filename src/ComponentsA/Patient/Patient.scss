@@ -3,12 +3,14 @@
 .o-patient-detail {
     background: $grey;
     margin: 0.8vw 0vw 0.3vw 0vw;
-    padding: 0.5vh 1.5vw;
+    padding: 0vh 1.5vw;
     display: flex;
     border-radius: 1vh;
     text-align: start;
     box-shadow: 3px 3px 5px $gray;
     border: none;
+    display: flex;
+    align-items: center;
 }
 
 .o-patient-detail:hover {
@@ -27,7 +29,6 @@
     margin-right: 0.5rem;
     width: 1.3rem;
     height: 1.3rem;
-    fill: $gray;
 }
 
 .o-icon-edit:hover {

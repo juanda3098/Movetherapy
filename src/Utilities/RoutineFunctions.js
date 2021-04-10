@@ -2,10 +2,10 @@ import axios from "axios";
 import swal from "sweetalert";
 import creds from "../variables";
 
-/* Listado de pacientes */
-export const PatientList = (setListPatients) => {
+/* Listado de rutinas */
+export const RoutineList = (setListPatients) => {
   axios
-    .get(`${creds.url}/paciente/lista`)
+    .get(`${creds.url}/rutina/lista`)
     .then((res) => {
       setListPatients(res.data);
     })
@@ -14,28 +14,11 @@ export const PatientList = (setListPatients) => {
     });
 };
 
-/* Busca un paciente con una cedula en concreto */
-export const SearchPatient = (cedula, setPatientSelected) => {};
-
-/* Eliminar un paciente */
-export const DeletePatient = (paciente, setListPatients) => {
-  var name = "";
-  if (paciente.nombre1Paciente) {
-    name = `${name} ${paciente.nombre1Paciente}`;
-  }
-  if (paciente.nombre2Paciente) {
-    name = `${name} ${paciente.nombre2Paciente}`;
-  }
-  if (paciente.apellido1Paciente) {
-    name = `${name} ${paciente.apellido1Paciente}`;
-  }
-  if (paciente.apellido2Paciente) {
-    name = `${name} ${paciente.apellido2Paciente}`;
-  }
-
+/* Eliminar una rutina */
+export const DeleteRoutine = (rutina, setListRoutines) => {
   swal({
     title: "Estas seguro?",
-    text: `Deseas borrar al paciente: ${name}?`,
+    text: `Deseas borrar la rutina: ${rutina.nombreRutina}?`,
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -47,15 +30,15 @@ export const DeletePatient = (paciente, setListPatients) => {
         icon: "info",
       });
       axios
-        .delete(`${creds.url}/paciente/cedula/${paciente.cedulaPaciente}`)
+        .delete(`${creds.url}/rutina/id/${rutina.idRutina}`)
         .then(function (res) {
           if (res.data === "success") {
             swal({
-              title: "Paciente eliminado",
-              text: `Se ha eliminado satisfactoriamente el paciente: ${name}`,
+              title: "Rutina eliminada",
+              text: `Se ha eliminado satisfactoriamente el paciente: ${rutina.nombreRutina}`,
               icon: "success",
             });
-            PatientList(setListPatients);
+            RoutineList(setListRoutines);
           }
           if (res.data === "failed") {
             swal({
@@ -74,39 +57,26 @@ export const DeletePatient = (paciente, setListPatients) => {
   });
 };
 
-/* Crear un paciente */
-export const CreatePatient = (paciente, setListPatients) => {
-  var name = "";
-  if (paciente.nombre1Paciente) {
-    name = `${name} ${paciente.nombre1Paciente}`;
-  }
-  if (paciente.nombre2Paciente) {
-    name = `${name} ${paciente.nombre2Paciente}`;
-  }
-  if (paciente.apellido1Paciente) {
-    name = `${name} ${paciente.apellido1Paciente}`;
-  }
-  if (paciente.apellido2Paciente) {
-    name = `${name} ${paciente.apellido2Paciente}`;
-  }
+/* Crear una rutina */
+export const CreateRoutine = (rutina, setListRoutines) => {
   swal({
     title: "Creando...",
-    text: "Estamos creando un nuevo paciente",
+    text: "Estamos creando una nueva rutina",
     icon: "info",
     buttons: false,
   });
   axios
-    .post(`${creds.url}/paciente/registro`, {
-      paciente,
+    .post(`${creds.url}/rutina/registro`, {
+      rutina,
     })
     .then(function (res) {
       if (res.data === "success") {
         swal({
-          title: "Paciente creado",
-          text: `Se ha creado satisfactoriamente el paciente: ${name}`,
+          title: "Rutina creada",
+          text: `Se ha creado satisfactoriamente la rutina: ${rutina.nombreRutina}`,
           icon: "success",
         });
-        PatientList(setListPatients);
+        RoutineList(setListRoutines);
       }
       if (res.data === "failed") {
         swal({
@@ -121,11 +91,11 @@ export const CreatePatient = (paciente, setListPatients) => {
     });
 };
 
-/* Editar un paciente */
-export const EditPatient = (actionPatient, setListPatients) => {
+/* Editar una rutina */
+export const EditRoutine = (rutina, setListRoutines) => {
   swal({
     title: "Estas seguro?",
-    text: "Deseas editar los datos de este paciente?",
+    text: "Deseas editar los datos de esta rutina?",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -137,17 +107,17 @@ export const EditPatient = (actionPatient, setListPatients) => {
         icon: "info",
       });
       axios
-        .post(`${creds.url}/paciente/editar`, {
-          actionPatient,
+        .post(`${creds.url}/rutina/editar`, {
+          rutina,
         })
         .then(function (res) {
           if (res.data === "success") {
             swal({
-              title: "Paciente editado",
-              text: "Se ha editado satisfactoriamente el paciente",
+              title: "Rutina editada",
+              text: "Se ha editado satisfactoriamente la rutina",
               icon: "success",
             });
-            PatientList(setListPatients);
+            RoutineList(setListRoutines);
           }
           if (res.data === "failed") {
             swal({

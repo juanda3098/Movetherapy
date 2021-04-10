@@ -1,67 +1,66 @@
-import React, { useEffect, useState } from "react";
-
-import {
-  ExerciseList,
-  CreateExercise,
-  EditExercise,
-} from "../../Utilities/ExerciseFunctions";
+import React, { useState, useEffect } from "react";
 
 import Menu from "../Menu/Menu";
 import Header from "../Header/Header";
-import Exercise from "../Exercise/Exercise";
+import Physio from "../Physio/Physio";
+
+import {
+  PhysioList,
+  CreatePhysio,
+  EditPhysio,
+} from "../../Utilities/PhysiotherapistFunctions";
 
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-import "./Exercises.scss";
+import "./Physios.scss";
 
-function Exercises() {
+function Physios() {
   const [showModal, setShowModal] = useState(false);
-  const [listExercises, setListExercises] = useState([]);
+  const [listPhysio, setListPhysio] = useState([]);
   const [isEdit, setIsEdit] = useState(true);
-  const [actionExercise, setActionExercise] = useState([]);
+  const [actionPhysio, setActionPhysio] = useState([]);
 
   useEffect(() => {
-    ExerciseList(setListExercises);
+    PhysioList(setListPhysio);
   }, []);
 
   const functionAction = (e) => {
-    console.log(actionExercise);
+    console.log(actionPhysio);
     if (isEdit) {
-      EditExercise(actionExercise, setListExercises);
+      EditPhysio(actionPhysio, setListPhysio);
     } else {
-      CreateExercise(actionExercise, setListExercises);
+      CreatePhysio(actionPhysio, setListPhysio);
     }
     setShowModal(false);
     clearForm();
     e.preventDefault();
   };
 
-  const handleEdit = (exercise) => {
-    console.log(exercise);
-    setActionExercise(exercise);
+  let handleField = (event) => {
+        setActionPhysio({
+      ...actionPhysio,
+      [event.target.id]: event.target.value,
+        });
+    console.log(actionPhysio);
+  };
+
+  const handleEdit = (physio) => {
+    setActionPhysio(physio);
     setIsEdit(true);
     setShowModal(true);
   };
 
-  const handleCreate = () => {
+  const openModalCreate = () => {
     clearForm();
     setIsEdit(false);
     setShowModal(true);
-    console.log(actionExercise);
-  };
-
-  const handleField = (e) => {
-    setActionExercise({
-      ...actionExercise,
-      [e.target.id]: e.target.value,
-    });
   };
 
   function clearForm() {
-    setActionExercise([]);
+    setActionPhysio([]);
   }
 
   return (
@@ -75,32 +74,32 @@ function Exercises() {
           <div className="o-routines-container">
             <div className="o-routines-content">
               <div className="o-search-routines">
-                <h3>Lista de ejercicios</h3>
+                <h3>Lista de fisioterapeutas</h3>
                 <input className="o-field-search" type="text" />
               </div>
               <div className="o-routines-field">
                 <div className="o-routine-label">
-                  <h4 style={{ width: "21vw" }}>Nombre</h4>
-                  <h4 style={{ width: "30vw" }}>Descripción</h4>
-                  <h4 style={{ width: "11vw" }}>Series</h4>
-                  <h4 style={{ width: "13vw" }}>Repeticiones</h4>
+                  <h4 style={{ width: "22vw" }}>Nombre</h4>
+                  <h4 style={{ width: "12vw" }}>Celular</h4>
+                  <h4 style={{ width: "20vw" }}>Correo</h4>
+                  <h4 style={{ width: "20vw" }}>Titulo</h4>
                   <h4 style={{ width: "5vw" }}>Acciones</h4>
                 </div>
                 <div className="o-routines-list">
-                  {Object.values(listExercises).map((exercise, index) => {
+                  {Object.values(listPhysio).map((physio, index) => {
                     return (
-                      <Exercise
+                      <Physio
                         key={index}
-                        exercise={exercise}
+                        physio={physio}
                         handleEditEvent={handleEdit}
-                        setListExercises={setListExercises}
+                        setListPhysio={setListPhysio}
                       />
                     );
                   })}
                 </div>
                 <div className="o-add-container">
                   <Fab
-                    onClick={handleCreate}
+                    onClick={openModalCreate}
                     color="primary"
                     aria-label="add"
                     style={{ fontSize: "4rem" }}
@@ -112,73 +111,98 @@ function Exercises() {
             </div>
             {showModal ? (
               <div className="o-exercises-modal">
-                <form onSubmit={functionAction} className="o-exercises-info">
+                <form className="o-exercises-info" onSubmit={functionAction}>
                   <div className="o-info-title">
-                    <h3>Ejercicio</h3>
+                    <h3>Fisioterapeuta</h3>
                   </div>
                   <div className="o-row">
                     <TextField
                       margin="normal"
                       onChange={(e) => handleField(e)}
                       required
-                      label="Nombre"
-                      id="nombreEjercicio"
-                      defaultValue={actionExercise.nombreEjercicio}
-                      variant="outlined"
-                      size="small"
-                    />
-                  </div>
-                  <div className="o-row">
-                    <TextField
-                      required
-                      margin="normal"
-                      id="descripcionEjercicio"
-                      onChange={(e) => handleField(e)}
-                      label="Descripcion del ejercicio"
-                      multiline
-                      rows={6}
-                      defaultValue={actionExercise.descripcionEjercicio}
-                      variant="outlined"
-                      style={{ width: "25rem" }}
-                    />
-                  </div>
-                  <div className="o-row">
-                    <TextField
-                      margin="normal"
-                      onChange={(e) => handleField(e)}
-                      required
-                      label="Numero de series"
-                      id="seriesEjercicio"
-                      defaultValue={actionExercise.seriesEjercicio}
+                      label="Primer nombre"
+                      id="nombre1Fisio"
+                      defaultValue={actionPhysio.nombre1Fisio}
                       variant="outlined"
                       size="small"
                     />
                     <TextField
                       margin="normal"
                       onChange={(e) => handleField(e)}
-                      required
-                      label="Numero de repeticiones"
-                      id="repeticionesEjercicio"
-                      defaultValue={actionExercise.repeticionesEjercicio}
+                      label="Segundo nombre"
+                      id="nombre2Fisio"
+                      defaultValue={actionPhysio.nombre2Fisio}
                       variant="outlined"
                       size="small"
                     />
                   </div>
                   <div className="o-row">
                     <TextField
-                      style={{ width: "20rem" }}
                       margin="normal"
                       onChange={(e) => handleField(e)}
                       required
-                      label="Link del video"
-                      id="linkVideo"
-                      defaultValue={actionExercise.linkVideo}
+                      label="Primer apellido"
+                      id="apellido1Fisio"
+                      defaultValue={actionPhysio.apellido1Fisio}
+                      variant="outlined"
+                      size="small"
+                    />
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      label="Segundo apellido"
+                      id="apellido2Fisio"
+                      defaultValue={actionPhysio.apellido2Fisio}
+                      variant="outlined"
+                      size="small"
+                    />
+                  </div>
+                  <div className="o-row">
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Cédula"
+                      id="cedulaFisio"
+                      defaultValue={actionPhysio.cedulaFisio}
+                      variant="outlined"
+                      size="small"
+                    />
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Celular"
+                      id="celularFisio"
+                      defaultValue={actionPhysio.celularFisio}
+                      variant="outlined"
+                      size="small"
+                    />
+                  </div>
+                  <div className="o-row">
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Correo electrónico"
+                      id="correoFisio"
+                      defaultValue={actionPhysio.correoFisio}
+                      variant="outlined"
+                      size="small"
+                    />
+                    <TextField
+                      margin="normal"
+                      onChange={(e) => handleField(e)}
+                      required
+                      label="Titulo"
+                      id="tituloFisio"
+                      defaultValue={actionPhysio.tituloFisio}
                       variant="outlined"
                       size="small"
                     />
                   </div>
                   <div className="o-row-physio">
-                    <div className="o-button-container-exercise">
+                    <div className="o-button-container-physio">
                       <Button
                         variant="contained"
                         onClick={() => setShowModal(false)}
@@ -216,4 +240,4 @@ function Exercises() {
   );
 }
 
-export default Exercises;
+export default Physios;

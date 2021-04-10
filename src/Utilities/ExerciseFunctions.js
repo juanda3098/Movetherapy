@@ -2,40 +2,23 @@ import axios from "axios";
 import swal from "sweetalert";
 import creds from "../variables";
 
-/* Listado de pacientes */
-export const PatientList = (setListPatients) => {
+/* Listado de ejercicios */
+export const ExerciseList = (setListExercise) => {
   axios
-    .get(`${creds.url}/paciente/lista`)
+    .get(`${creds.url}/ejercicio/lista`)
     .then((res) => {
-      setListPatients(res.data);
+      setListExercise(res.data);
     })
     .catch(function (error) {
       console.log(error);
     });
 };
 
-/* Busca un paciente con una cedula en concreto */
-export const SearchPatient = (cedula, setPatientSelected) => {};
-
-/* Eliminar un paciente */
-export const DeletePatient = (paciente, setListPatients) => {
-  var name = "";
-  if (paciente.nombre1Paciente) {
-    name = `${name} ${paciente.nombre1Paciente}`;
-  }
-  if (paciente.nombre2Paciente) {
-    name = `${name} ${paciente.nombre2Paciente}`;
-  }
-  if (paciente.apellido1Paciente) {
-    name = `${name} ${paciente.apellido1Paciente}`;
-  }
-  if (paciente.apellido2Paciente) {
-    name = `${name} ${paciente.apellido2Paciente}`;
-  }
-
+/* Eliminar un ejercicio */
+export const DeleteExercise = (ejercicio, setListExercise) => {
   swal({
     title: "Estas seguro?",
-    text: `Deseas borrar al paciente: ${name}?`,
+    text: `Deseas borrar el ejercicio: ${ejercicio.nombreEjercicio}?`,
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -47,15 +30,15 @@ export const DeletePatient = (paciente, setListPatients) => {
         icon: "info",
       });
       axios
-        .delete(`${creds.url}/paciente/cedula/${paciente.cedulaPaciente}`)
+        .delete(`${creds.url}/ejercicio/id/${ejercicio.idEjercicio}`)
         .then(function (res) {
           if (res.data === "success") {
             swal({
-              title: "Paciente eliminado",
-              text: `Se ha eliminado satisfactoriamente el paciente: ${name}`,
+              title: "Ejercicio eliminado",
+              text: `Se ha eliminado satisfactoriamente el ejercicio: ${ejercicio.nombreEjercicio}`,
               icon: "success",
             });
-            PatientList(setListPatients);
+            ExerciseList(setListExercise);
           }
           if (res.data === "failed") {
             swal({
@@ -74,39 +57,26 @@ export const DeletePatient = (paciente, setListPatients) => {
   });
 };
 
-/* Crear un paciente */
-export const CreatePatient = (paciente, setListPatients) => {
-  var name = "";
-  if (paciente.nombre1Paciente) {
-    name = `${name} ${paciente.nombre1Paciente}`;
-  }
-  if (paciente.nombre2Paciente) {
-    name = `${name} ${paciente.nombre2Paciente}`;
-  }
-  if (paciente.apellido1Paciente) {
-    name = `${name} ${paciente.apellido1Paciente}`;
-  }
-  if (paciente.apellido2Paciente) {
-    name = `${name} ${paciente.apellido2Paciente}`;
-  }
+/* Crear un ejercicio */
+export const CreateExercise = (ejercicio, setListExercise) => {
   swal({
     title: "Creando...",
-    text: "Estamos creando un nuevo paciente",
+    text: "Estamos creando un nuevo ejercicio",
     icon: "info",
     buttons: false,
   });
   axios
-    .post(`${creds.url}/paciente/registro`, {
-      paciente,
+    .post(`${creds.url}/ejercicio/registro`, {
+      ejercicio,
     })
     .then(function (res) {
       if (res.data === "success") {
         swal({
-          title: "Paciente creado",
-          text: `Se ha creado satisfactoriamente el paciente: ${name}`,
+          title: "Ejercicio creado",
+          text: `Se ha creado satisfactoriamente el ejercicio: ${ejercicio.nombreEjercicio}`,
           icon: "success",
         });
-        PatientList(setListPatients);
+        ExerciseList(setListExercise);
       }
       if (res.data === "failed") {
         swal({
@@ -121,11 +91,12 @@ export const CreatePatient = (paciente, setListPatients) => {
     });
 };
 
-/* Editar un paciente */
-export const EditPatient = (actionPatient, setListPatients) => {
+/* Editar un ejercicio */
+export const EditExercise = (ejercicio, setListExercise) => {
+  console.log(ejercicio);
   swal({
     title: "Estas seguro?",
-    text: "Deseas editar los datos de este paciente?",
+    text: "Deseas editar los datos de este ejercicio?",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -137,17 +108,17 @@ export const EditPatient = (actionPatient, setListPatients) => {
         icon: "info",
       });
       axios
-        .post(`${creds.url}/paciente/editar`, {
-          actionPatient,
+        .post(`${creds.url}/ejercicio/editar`, {
+          ejercicio,
         })
         .then(function (res) {
           if (res.data === "success") {
             swal({
-              title: "Paciente editado",
-              text: "Se ha editado satisfactoriamente el paciente",
+              title: "Ejercicio editado",
+              text: "Se ha editado satisfactoriamente el ejercicio",
               icon: "success",
             });
-            PatientList(setListPatients);
+            ExerciseList(setListExercise);
           }
           if (res.data === "failed") {
             swal({

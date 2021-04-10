@@ -3,22 +3,19 @@ import swal from "sweetalert";
 import creds from "../variables";
 
 /* Listado de pacientes */
-export const PatientList = (setListPatients) => {
+export const AppointmentList = (setListAppointments) => {
   axios
-    .get(`${creds.url}/paciente/lista`)
+    .get(`${creds.url}/cita/lista`)
     .then((res) => {
-      setListPatients(res.data);
+      setListAppointments(res.data);
     })
     .catch(function (error) {
       console.log(error);
     });
 };
 
-/* Busca un paciente con una cedula en concreto */
-export const SearchPatient = (cedula, setPatientSelected) => {};
-
 /* Eliminar un paciente */
-export const DeletePatient = (paciente, setListPatients) => {
+export const DeleteAppointment = (paciente, setListAppointments) => {
   var name = "";
   if (paciente.nombre1Paciente) {
     name = `${name} ${paciente.nombre1Paciente}`;
@@ -55,7 +52,7 @@ export const DeletePatient = (paciente, setListPatients) => {
               text: `Se ha eliminado satisfactoriamente el paciente: ${name}`,
               icon: "success",
             });
-            PatientList(setListPatients);
+            AppointmentList(setListAppointments);
           }
           if (res.data === "failed") {
             swal({
@@ -75,8 +72,8 @@ export const DeletePatient = (paciente, setListPatients) => {
 };
 
 /* Crear un paciente */
-export const CreatePatient = (paciente, setListPatients) => {
-  var name = "";
+export const CreateAppointment = (cita, setListAppointments) => {
+  /* var name = "";
   if (paciente.nombre1Paciente) {
     name = `${name} ${paciente.nombre1Paciente}`;
   }
@@ -88,25 +85,25 @@ export const CreatePatient = (paciente, setListPatients) => {
   }
   if (paciente.apellido2Paciente) {
     name = `${name} ${paciente.apellido2Paciente}`;
-  }
+  } */
   swal({
     title: "Creando...",
-    text: "Estamos creando un nuevo paciente",
+    text: "Estamos creando una nueva cita",
     icon: "info",
     buttons: false,
   });
   axios
-    .post(`${creds.url}/paciente/registro`, {
-      paciente,
+    .post(`${creds.url}/cita/registro`, {
+      cita,
     })
     .then(function (res) {
       if (res.data === "success") {
         swal({
-          title: "Paciente creado",
-          text: `Se ha creado satisfactoriamente el paciente: ${name}`,
+          title: "Cita creada",
+          text: `Se ha creado satisfactoriamente la cita`,
           icon: "success",
         });
-        PatientList(setListPatients);
+        AppointmentList(setListAppointments);
       }
       if (res.data === "failed") {
         swal({
@@ -122,7 +119,7 @@ export const CreatePatient = (paciente, setListPatients) => {
 };
 
 /* Editar un paciente */
-export const EditPatient = (actionPatient, setListPatients) => {
+export const EditAppointment = (actionAppointment, setListAppointments) => {
   swal({
     title: "Estas seguro?",
     text: "Deseas editar los datos de este paciente?",
@@ -138,7 +135,7 @@ export const EditPatient = (actionPatient, setListPatients) => {
       });
       axios
         .post(`${creds.url}/paciente/editar`, {
-          actionPatient,
+          actionAppointment,
         })
         .then(function (res) {
           if (res.data === "success") {
@@ -147,7 +144,7 @@ export const EditPatient = (actionPatient, setListPatients) => {
               text: "Se ha editado satisfactoriamente el paciente",
               icon: "success",
             });
-            PatientList(setListPatients);
+            AppointmentList(setListAppointments);
           }
           if (res.data === "failed") {
             swal({
