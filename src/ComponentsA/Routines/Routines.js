@@ -41,28 +41,29 @@ function Routines() {
   const functionAction = (e) => {
     console.log(actionRoutine);
     if (isEdit) {
-      EditRoutine(actionRoutine, setListExercises);
+      EditRoutine(actionRoutine, setListRoutines);
     } else {
-      CreateRoutine(actionRoutine, setListExercises);
+      CreateRoutine(actionRoutine, setListRoutines);
     }
     setShowModal(false);
     clearForm();
     e.preventDefault();
   };
 
-  const handlePatientSelected = (list) => {
+  const handleExerciseSelected = (list) => {
     setActionRoutine({ ...actionRoutine, listaEjercicios: list });
   };
 
   const handleField = (e) => {
-    console.log(actionRoutine);
     setActionRoutine({
       ...actionRoutine,
       [e.target.id]: e.target.value,
     });
   };
 
-  const openModalCreate = () => {
+  const handleEdit = (routine) => {
+    setActionRoutine(routine);
+    setIsEdit(true);
     setShowModal(true);
   };
 
@@ -70,11 +71,11 @@ function Routines() {
     setActionRoutine([]);
   }
 
-    const handleCreate = () => {
-      clearForm();
-      setIsEdit(false);
-      setShowModal(true);
-    };
+  const handleCreate = () => {
+    clearForm();
+    setIsEdit(false);
+    setShowModal(true);
+  };
 
   return (
     <div className="o-admin-container">
@@ -97,7 +98,16 @@ function Routines() {
                   <h4 style={{ width: "5vw" }}>Acciones</h4>
                 </div>
                 <div className="o-routines-list">
-                  <Routine />
+                  {Object.values(listRoutines).map((routine, index) => {
+                    return (
+                      <Routine
+                        key={index}
+                        routine={routine}
+                        handleEditEvent={handleEdit}
+                        setListRoutines={setListRoutines}
+                      />
+                    );
+                  })}
                 </div>
                 <div className="o-add-container">
                   <Fab
@@ -144,14 +154,16 @@ function Routines() {
                     />
                   </div>
                   <div className="o-row">
+                    {console.log(actionRoutine)}
                     <Autocomplete
                       multiple
                       id="listaEjercicios"
                       options={listExercises}
-                      onChange={(event, value) => handlePatientSelected(value)}
+                      onChange={(event, value) => handleExerciseSelected(value)}
                       disableCloseOnSelect
-                      getOptionLabel={(exercise) => exercise.nombreEjercicio}
-                      renderOption={(exercise, { selected }) => (
+                      getOptionLabel={(option) => option.nombreEjercicio}
+                      defaultValue={[listExercises[0]]}
+                      renderOption={(option, { selected }) => (
                         <React.Fragment>
                           <Checkbox
                             icon={icon}
@@ -159,7 +171,7 @@ function Routines() {
                             style={{ marginRight: 8 }}
                             checked={selected}
                           />
-                          {exercise.nombreEjercicio}
+                          {option.nombreEjercicio}
                         </React.Fragment>
                       )}
                       style={{ width: 500 }}

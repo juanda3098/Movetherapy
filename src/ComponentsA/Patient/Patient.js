@@ -26,7 +26,12 @@ function Patient(props) {
       aux = `${aux} ${props.patient.apellido2Paciente}`;
     }
     setName(aux);
-  });
+  }, [
+    props.patient.nombre1Paciente,
+    props.patient.nombre2Paciente,
+    props.patient.apellido1Paciente,
+    props.patient.apellido2Paciente,
+  ]);
 
   return (
     <div className="o-patient-detail">

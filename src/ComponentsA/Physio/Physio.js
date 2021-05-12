@@ -9,7 +9,6 @@ import EditIcon from "@material-ui/icons/Edit";
 import "./Physio.scss";
 
 function Physio(props) {
-
   const [name, setName] = useState("");
 
   useEffect(() => {
@@ -27,7 +26,12 @@ function Physio(props) {
       aux = `${aux} ${props.physio.apellido2Fisio}`;
     }
     setName(aux);
-  });
+  }, [
+    props.physio.nombre1Fisio,
+    props.physio.nombre2Fisio,
+    props.physio.apellido1Fisio,
+    props.physio.apellido2Fisio,
+  ]);
 
   return (
     <div className="o-physio-detail">
