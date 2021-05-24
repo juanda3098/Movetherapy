@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import { Link } from "react-router-dom";
+import LoginContext from "../../Context/LoginContext";
+import { useHistory, Link } from "react-router-dom";
 
 import Logo from "../../Img/User/Logo.svg";
-import Exit from "../../Img/User/logout.svg";
+import Logout from "../../Img/User/logout.svg";
 
 import "./Header.scss";
 
 function Header() {
+  const history = useHistory();
+  const { user, logout } = useContext(LoginContext);
+
   return (
     <div className="o-header-user">
       <div className="o-header-user-link">
@@ -22,10 +26,13 @@ function Header() {
         </Link>
       </div>
       <div className="o-header-detail-link">
-        <h4>Juan David Posso Rengifo</h4>
-        <Link to="/">
-          <img src={Exit} alt="" className="o-exit-icon" />
-        </Link>
+        <h4>{`${user.nombre1} ${user.nombre2} ${user.apellido1} ${user.apellido2}`}</h4>
+        <img
+          src={Logout}
+          alt=""
+          className="o-exit-icon"
+          onClick={() => logout(history)}
+        />
       </div>
     </div>
   );

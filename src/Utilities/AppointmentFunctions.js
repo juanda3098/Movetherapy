@@ -2,11 +2,12 @@ import axios from "axios";
 import swal from "sweetalert";
 import creds from "../variables";
 
-/* Listado de pacientes */
+/* Listado de citas */
 export const AppointmentList = (setListAppointments) => {
   axios
     .get(`${creds.url}/cita/lista`)
     .then((res) => {
+      console.log(res.data);
       setListAppointments(res.data);
     })
     .catch(function (error) {
@@ -14,25 +15,54 @@ export const AppointmentList = (setListAppointments) => {
     });
 };
 
-/* Eliminar un paciente */
-export const DeleteAppointment = (paciente, setListAppointments) => {
+/* Listado de citas de un usuario */
+export const AppointmentListUser = (cedula, setListAppointments) => {
+  axios
+    .post(`${creds.url}/cita/lista`, {
+      cedula
+    })
+    .then((res) => {
+      console.log(res.data);
+      setListAppointments(res.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+/* Listado de rutinas de una cita */
+export const RoutineAppointmentList = (cita, setListExerciseRoutine) => {
+  axios
+    .post(`${creds.url}/cita/rutina`, {
+      cita,
+    })
+    .then((res) => {
+      setListExerciseRoutine(res.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+/* Eliminar un cita */
+export const DeleteAppointment = (cita, setListAppointments, closeModal, e) => {
   var name = "";
-  if (paciente.nombre1Paciente) {
-    name = `${name} ${paciente.nombre1Paciente}`;
+  if (cita.nombre1Paciente) {
+    name = `${name} ${cita.nombre1Paciente}`;
   }
-  if (paciente.nombre2Paciente) {
-    name = `${name} ${paciente.nombre2Paciente}`;
+  if (cita.nombre2Paciente) {
+    name = `${name} ${cita.nombre2Paciente}`;
   }
-  if (paciente.apellido1Paciente) {
-    name = `${name} ${paciente.apellido1Paciente}`;
+  if (cita.apellido1Paciente) {
+    name = `${name} ${cita.apellido1Paciente}`;
   }
-  if (paciente.apellido2Paciente) {
-    name = `${name} ${paciente.apellido2Paciente}`;
+  if (cita.apellido2Paciente) {
+    name = `${name} ${cita.apellido2Paciente}`;
   }
 
   swal({
     title: "Estas seguro?",
-    text: `Deseas borrar al paciente: ${name}?`,
+    text: `Deseas borrar la cita del paciente: ${name}?`,
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -43,13 +73,14 @@ export const DeleteAppointment = (paciente, setListAppointments) => {
         text: "Se está procesando tu solicitud",
         icon: "info",
       });
+      closeModal();
       axios
-        .delete(`${creds.url}/paciente/cedula/${paciente.cedulaPaciente}`)
+        .delete(`${creds.url}/cita/id/${cita.idCita}`)
         .then(function (res) {
           if (res.data === "success") {
             swal({
-              title: "Paciente eliminado",
-              text: `Se ha eliminado satisfactoriamente el paciente: ${name}`,
+              title: "Cita eliminada",
+              text: `Se ha eliminado satisfactoriamente la cita del paciente: ${name}`,
               icon: "success",
             });
             AppointmentList(setListAppointments);
@@ -71,21 +102,8 @@ export const DeleteAppointment = (paciente, setListAppointments) => {
   });
 };
 
-/* Crear un paciente */
+/* Crear un cita */
 export const CreateAppointment = (cita, setListAppointments) => {
-  /* var name = "";
-  if (paciente.nombre1Paciente) {
-    name = `${name} ${paciente.nombre1Paciente}`;
-  }
-  if (paciente.nombre2Paciente) {
-    name = `${name} ${paciente.nombre2Paciente}`;
-  }
-  if (paciente.apellido1Paciente) {
-    name = `${name} ${paciente.apellido1Paciente}`;
-  }
-  if (paciente.apellido2Paciente) {
-    name = `${name} ${paciente.apellido2Paciente}`;
-  } */
   swal({
     title: "Creando...",
     text: "Estamos creando una nueva cita",
@@ -118,7 +136,7 @@ export const CreateAppointment = (cita, setListAppointments) => {
     });
 };
 
-/* Editar un paciente */
+/* Editar una cita */
 export const EditAppointment = (actionAppointment, setListAppointments) => {
   swal({
     title: "Estas seguro?",

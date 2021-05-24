@@ -1,5 +1,18 @@
 @import '../../variableStyles.scss';
 
+.o-routines-user-detail {
+    background: $grey;
+    margin: 0.8vw 0vw 0.3vw 0vw;
+    padding: 0vh 0vw 0vh 1.5vw;
+    display: flex;
+    border-radius: 1vh;
+    text-align: start;
+    box-shadow: 3px 3px 5px $gray;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
 .o-routines-user-container {
     color: $blue;
     background: $grey;

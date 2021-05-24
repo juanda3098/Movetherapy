@@ -266,13 +266,12 @@ function Patients() {
                       </FormGroup>
                     </FormControl>
                   </div>
-                  <div className="o-row-routines">
+                  <div className="o-row">
                     <div className="o-button-container">
                       <Button
                         variant="contained"
                         onClick={() => setShowModal(false)}
                         style={{ marginRight: "1rem" }}
-                        color="secondary"
                       >
                         Cerrar
                       </Button>

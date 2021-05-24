@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 import { PatientList } from "../../Utilities/PatientFunctions";
+import { RoutineList } from "../../Utilities/RoutineFunctions";
 
 import {
   AppointmentList,
   EditAppointment,
   CreateAppointment,
+  DeleteAppointment,
+  RoutineAppointmentList,
 } from "../../Utilities/AppointmentFunctions";
 
 import Menu from "../Menu/Menu";
@@ -18,23 +21,25 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Button from "@material-ui/core/Button";
+import Checkbox from "@material-ui/core/Checkbox";
+import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@material-ui/icons/CheckBox";
 
 import "./Appointment.scss";
 
 function Appointment() {
+  const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+  const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
   const [listPatients, setListPatients] = useState([]);
   const [listAppointments, setListAppointments] = useState([]);
+  const [listRoutines, setListRoutines] = useState([]);
+  const [listRoutineAppointment, setListRoutineAppointment] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [selectedHour, setSelectedHour] = useState();
   const [actionAppointment, setActionAppointment] = useState([]);
 
-  const [events] = useState([
-    { title: "event 1", start: "2021-04-01T08:30"},
-    { title: "event 2", date: "2021-04-02" },
-  ]);
-
-  const handlePatientSelected = (cadena) => {
+  const handlePatientSelected = (cadena, algo) => {
     if (cadena) {
       var cedula = cadena.split(",", 1);
       setActionAppointment({
@@ -45,11 +50,14 @@ function Appointment() {
   };
 
   const handleHourChange = (e) => {
-    setSelectedHour(e.target.value);
     setActionAppointment({
       ...actionAppointment,
       horaCita: e.target.value,
     });
+  };
+
+  const handleRoutineSelected = (list) => {
+    setActionAppointment({ ...actionAppointment, listaRutinas: list });
   };
 
   const handleCreate = (e) => {
@@ -57,15 +65,15 @@ function Appointment() {
       ...actionAppointment,
       fechaCita: e.dateStr,
     });
-    setShowModal(true)
-  }
+    setIsEdit(false);
+    setShowModal(true);
+  };
 
   const functionAction = (e) => {
     console.log(actionAppointment);
     if (isEdit) {
       EditAppointment(actionAppointment, setListAppointments);
     } else {
-      console.log('creacion');
       CreateAppointment(actionAppointment, setListAppointments);
     }
     setShowModal(false);
@@ -73,9 +81,15 @@ function Appointment() {
     e.preventDefault();
   };
 
+  const closeModal = () => {
+    clearForm();
+    setShowModal(false);
+  };
+
   function clearForm() {
     setActionAppointment([]);
   }
+
   const handleField = (e) => {
     setActionAppointment({
       ...actionAppointment,
@@ -83,9 +97,20 @@ function Appointment() {
     });
   };
 
+  const showAppointment = ({ event }) => {
+    RoutineAppointmentList(
+      event._def.extendedProps.idCita,
+      setListRoutineAppointment
+    );
+    setActionAppointment(event._def.extendedProps);
+    setIsEdit(true);
+    setShowModal(true);
+  };
+
   useEffect(() => {
     PatientList(setListPatients);
     AppointmentList(setListAppointments);
+    RoutineList(setListRoutines);
   }, []);
 
   return (
@@ -105,7 +130,7 @@ function Appointment() {
               <div className="o-appointments-field">
                 <FullCalendar
                   plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                  events={actionAppointment}
+                  events={listAppointments}
                   headerToolbar={{
                     left: "prev,next today",
                     center: "title",
@@ -131,11 +156,7 @@ function Appointment() {
                   nowIndicator={true}
                   locale="es"
                   dateClick={handleCreate}
-                  eventClick={function (e) {
-                    // e.jsEvent.preventDefault(); // don't let the browser navigate
-                    setShowModal(true);
-                    console.log("evento", e);
-                  }}
+                  eventClick={showAppointment}
                 />
               </div>
             </div>
@@ -151,6 +172,10 @@ function Appointment() {
                       options={listPatients}
                       getOptionLabel={(paciente) =>
                         `${paciente.cedulaPaciente}, ${paciente.nombre1Paciente} ${paciente.nombre2Paciente} ${paciente.apellido1Paciente} ${paciente.apellido2Paciente}`
+                      }
+                      inputValue={
+                        actionAppointment?.idCita &&
+                        `${actionAppointment.cedulaPaciente}, ${actionAppointment.nombre1Paciente} ${actionAppointment.nombre2Paciente} ${actionAppointment.apellido1Paciente} ${actionAppointment.apellido2Paciente}`
                       }
                       onChange={(e) =>
                         handlePatientSelected(e.target.outerText)
@@ -179,7 +204,7 @@ function Appointment() {
                       label="Hora de la cita"
                       type="time"
                       onChange={handleHourChange}
-                      defaultValue=""
+                      defaultValue={actionAppointment.horaCita}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -199,18 +224,68 @@ function Appointment() {
                       multiline
                       onChange={(e) => handleField(e)}
                       rows={6}
-                      defaultValue=""
+                      defaultValue={actionAppointment.observacionCita}
                       variant="outlined"
                       style={{ width: "25rem" }}
                     />
                   </div>
                   <div className="o-row">
+                    {console.log(listRoutineAppointment)}
+                    {console.log(isEdit)}
+                    <Autocomplete
+                      multiple
+                      id="listaRutinas"
+                      options={listRoutines}
+                      onChange={(event, value) => handleRoutineSelected(value)}
+                      disableCloseOnSelect
+                      getOptionLabel={(option) => option.nombreRutina}
+                      defaultValue={isEdit ? listRoutineAppointment : []}
+                      renderOption={(option, { selected }) => (
+                        <React.Fragment>
+                          <Checkbox
+                            icon={icon}
+                            checkedIcon={checkedIcon}
+                            style={{ marginRight: 8 }}
+                            checked={selected}
+                          />
+                          {option.nombreRutina}
+                        </React.Fragment>
+                      )}
+                      style={{ width: 500 }}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          margin="normal"
+                          variant="outlined"
+                          label="Rutinas"
+                          placeholder="Selecciona las rutinas"
+                        />
+                      )}
+                    />
+                  </div>
+                  <div className="o-row">
                     <div className="o-button-container">
+                      {isEdit ? (
+                        <Button
+                          variant="contained"
+                          onClick={(e) =>
+                            DeleteAppointment(
+                              actionAppointment,
+                              setListAppointments,
+                              closeModal,
+                              e
+                            )
+                          }
+                          style={{ marginRight: "15rem" }}
+                          color="secondary"
+                        >
+                          Borrar
+                        </Button>
+                      ) : null}
                       <Button
                         variant="contained"
-                        onClick={() => setShowModal(false)}
+                        onClick={closeModal}
                         style={{ marginRight: "1rem" }}
-                        color="secondary"
                       >
                         Cerrar
                       </Button>

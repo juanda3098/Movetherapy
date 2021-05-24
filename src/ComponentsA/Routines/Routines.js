@@ -8,6 +8,7 @@ import {
   RoutineList,
   CreateRoutine,
   EditRoutine,
+  ExerciseRoutineList,
 } from "../../Utilities/RoutineFunctions";
 
 import { ExerciseList } from "../../Utilities/ExerciseFunctions";
@@ -31,6 +32,7 @@ function Routines() {
   const [actionRoutine, setActionRoutine] = useState([]);
   const [isEdit, setIsEdit] = useState(true);
   const [listRoutines, setListRoutines] = useState([]);
+  const [listExerciseRoutine, setListExerciseRoutine] = useState([]);
   const [listExercises, setListExercises] = useState([]);
 
   useEffect(() => {
@@ -39,7 +41,7 @@ function Routines() {
   }, []);
 
   const functionAction = (e) => {
-    console.log(actionRoutine);
+    // console.log(actionRoutine);
     if (isEdit) {
       EditRoutine(actionRoutine, setListRoutines);
     } else {
@@ -62,6 +64,7 @@ function Routines() {
   };
 
   const handleEdit = (routine) => {
+    ExerciseRoutineList(routine.idRutina, setListExerciseRoutine);
     setActionRoutine(routine);
     setIsEdit(true);
     setShowModal(true);
@@ -154,7 +157,6 @@ function Routines() {
                     />
                   </div>
                   <div className="o-row">
-                    {console.log(actionRoutine)}
                     <Autocomplete
                       multiple
                       id="listaEjercicios"
@@ -162,7 +164,7 @@ function Routines() {
                       onChange={(event, value) => handleExerciseSelected(value)}
                       disableCloseOnSelect
                       getOptionLabel={(option) => option.nombreEjercicio}
-                      defaultValue={[listExercises[0]]}
+                      defaultValue={isEdit ? listExerciseRoutine : []}
                       renderOption={(option, { selected }) => (
                         <React.Fragment>
                           <Checkbox
@@ -181,7 +183,7 @@ function Routines() {
                           margin="normal"
                           variant="outlined"
                           label="Ejercicios"
-                          placeholder="Favorites"
+                          placeholder="Selecciona los ejercicios"
                         />
                       )}
                     />
@@ -193,7 +195,6 @@ function Routines() {
                         variant="contained"
                         onClick={() => setShowModal(false)}
                         style={{ marginRight: "1rem" }}
-                        color="secondary"
                       >
                         Cerrar
                       </Button>

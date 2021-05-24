@@ -183,7 +183,6 @@ function Exercises() {
                         variant="contained"
                         onClick={() => setShowModal(false)}
                         style={{ marginRight: "1rem" }}
-                        color="secondary"
                       >
                         Cerrar
                       </Button>

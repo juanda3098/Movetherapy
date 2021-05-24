@@ -1,7 +1,21 @@
+@import '../../variableStyles.scss';
+
 .o-row-physio {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+.o-physio-info {
+  background: $white;
+  box-shadow: 2px 2px 10px $black;
+  width: 35vw;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 2rem;
 }
 
 .o-button-container-physio {

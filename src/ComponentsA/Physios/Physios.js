@@ -111,7 +111,7 @@ function Physios() {
             </div>
             {showModal ? (
               <div className="o-exercises-modal">
-                <form className="o-exercises-info" onSubmit={functionAction}>
+                <form className="o-physio-info" onSubmit={functionAction}>
                   <div className="o-info-title">
                     <h3>Fisioterapeuta</h3>
                   </div>
@@ -207,7 +207,6 @@ function Physios() {
                         variant="contained"
                         onClick={() => setShowModal(false)}
                         style={{ marginRight: "1rem" }}
-                        color="secondary"
                       >
                         Cerrar
                       </Button>

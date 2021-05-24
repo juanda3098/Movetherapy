@@ -3,11 +3,39 @@ import swal from "sweetalert";
 import creds from "../variables";
 
 /* Listado de rutinas */
-export const RoutineList = (setListPatients) => {
+export const RoutineList = (setListRoutines) => {
   axios
     .get(`${creds.url}/rutina/lista`)
     .then((res) => {
-      setListPatients(res.data);
+      setListRoutines(res.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+/* Listado de ejercicios de una rutina con id */
+export const ExerciseRoutineList = (rutina, setListExerciseRoutine) => {
+  axios
+    .post(`${creds.url}/rutina/ejercicio`, {
+      rutina,
+    })
+    .then((res) => {
+      setListExerciseRoutine(res.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+/* Listado de rutinas de un usuario en especifico */
+export const RoutineListUser = (cedula, setListExerciseRoutine) => {
+  axios
+    .post(`${creds.url}/rutina/usuario`, {
+      cedula,
+    })
+    .then((res) => {
+      setListExerciseRoutine(res.data);
     })
     .catch(function (error) {
       console.log(error);
